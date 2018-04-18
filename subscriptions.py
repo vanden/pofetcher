@@ -63,15 +63,15 @@ class Subscription():
 class Renamer():
     def __init__(self, base):
         self.namesUsed = []
+        self.base = base
 
     def rename(self, url, pubdatetime):
-        base = 'quirks'
         date = pubdatetime.strftime("%Y%m%d")
         idn = 1
-        candidate = f"{base}_{date}_{idn:02}.mp3"
+        candidate = f"{self.base}_{date}_{idn:02}.mp3"
         while candidate in self.namesUsed:
             idn += 1
-            candidate = f"{base}_{date}_{idn:02}.mp3"
+            candidate = f"{self.base}_{date}_{idn:02}.mp3"
         self.namesUsed.append(candidate)
         return candidate
 
