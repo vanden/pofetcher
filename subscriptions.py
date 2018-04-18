@@ -2,11 +2,16 @@ import datetime, urllib.request, os
 import feedparser, requests
 
 podcastDir = '/home/brian/media/podcasts/podpad2'
+podlog = os.path.join(podcastDir, 'podfetchlog')
+
+from podlog import PodLog
 
 class Subscription():
 
-    def __init__(self, feed, targetDir=podcastDir, count=5, renamer=None):
+    def __init__(self, feed=None, log=None, targetDir=podcastDir, count=5,
+                 renamer=None):
         self.feed = feed
+        self.log = log
         self.targetDir = targetDir
         self.count = count
         self.renamer = renamer
@@ -21,9 +26,14 @@ class Subscription():
 
         self._fetch(entriesToFetch)
 
-        
+
     def _fetch(self, entries):
         for entry in entries:
+
+            url = entry.enclosures[0].href
+            if url in self.log:
+                continue
+
             dts = None
             if 'published_parsed' in entry:
                 dts = entry.published_parsed
@@ -35,8 +45,7 @@ class Subscription():
                                           dts.tm_min, dts.tm_sec)
             else:
                 stamp = datetime.datetime.now()
-                
-            url = entry.enclosures[0].href
+
             localName = os.path.join(self.targetDir, self.renamer(url, stamp))
             print(url)
             if os.path.isfile(localName):
@@ -50,6 +59,8 @@ class Subscription():
                 if chunk:
                     f.write(chunk)
             f.close()
+
+            self.log.update(url)
 
 
 class Renamer():
@@ -66,12 +77,14 @@ class Renamer():
             candidate = f"{base}_{date}_{idn:02}.mp3"
         self.namesUsed.append(candidate)
         return candidate
-    
-    
+
+
+log = PodLog(podlog)
 
 subscriptions = []
 
-quirks = Subscription('http://www.cbc.ca/podcasting/includes/quirks.xml',
+quirks = Subscription(feed='http://www.cbc.ca/podcasting/includes/quirks.xml',
+                      log=log,
                       targetDir='/home/brian/media/podcasts/podpad2/sci',
                       renamer = Renamer('quirks').rename,
                       count=10)
