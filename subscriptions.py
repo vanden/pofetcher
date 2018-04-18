@@ -47,11 +47,8 @@ class Subscription():
                 stamp = datetime.datetime.now()
 
             localName = os.path.join(self.targetDir, self.renamer(url, stamp))
-            print(url)
-            if os.path.isfile(localName):
-                # FixMe Do soemthing useful
-                print("Seen already")
-                continue
+            while os.path.isfile(localName):
+                localName = os.path.join(self.targetDir, self.renamer(url, stamp))
 
             r = requests.get(url)
             f = open(localName, 'wb')
