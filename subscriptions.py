@@ -88,7 +88,6 @@ cbcSubscriptions = [
     ondrugs,
     spark,
     whitecoat,
-    ondrugs,
     undertheinfluence,
 ]
 
