@@ -3,7 +3,7 @@ class Renamer():
 
     def __init__(self, base=None):
         self.namesUsed = []
-        self.base = base
+        self.base = base or ''
 
 
     def _clean(self, string):
@@ -83,9 +83,10 @@ class TitleRenamer(Renamer):
 
         num = self._getIDNumerPart(idn)
         if self.base:
-            name = f"{self.base}_{entry.title}_{stamp}_{num}.{self.remoteExt}"
+            base = f"{self.base}_"
         else:
-            name = f"{entry.title}_{stamp}_{num}.{self.remoteExt}"
+            base = ""
+        name = f"{base}{entry.title}_{stamp}_{num}.{self.remoteExt}"
         name = self._processHook(name)
         return self._clean(name)
 
