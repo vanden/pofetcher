@@ -12,7 +12,6 @@ from subscription import Subscription
 cbcSubscriptions = []
 quirks = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/quirks.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     renamer = Renamer('quirks').rename,
     count=10,
@@ -22,7 +21,6 @@ quirks = Subscription(
 
 atissue = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/atissue.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/news',
     renamer = Renamer('AtIssue').rename,
     count=3,
@@ -32,7 +30,6 @@ atissue = Subscription(
 
 otherpeoplesproblems = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/opp.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/cbc',
     renamer = TitleRenamer('CBCOtherPeoplesProblems').rename,
     count=2,
@@ -42,7 +39,6 @@ otherpeoplesproblems = Subscription(
 
 ondrugs = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/ondrugs.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/cbc',
     renamer = TitleRenamer('CBCOnDrugs').rename,
     count=3,
@@ -52,7 +48,6 @@ ondrugs = Subscription(
 
 whitecoat = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/whitecoat.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/cbc',
     renamer = TitleRenamer('CBCWhiteCoatBlackArt').rename,
     count=3,
@@ -62,7 +57,6 @@ whitecoat = Subscription(
 
 spark = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/spark.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/cbc',
     renamer = TitleRenamer('CBCSpark').rename,
     count=3,
@@ -73,7 +67,6 @@ spark = Subscription(
 
 undertheinfluence = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/undertheinfluence.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/cbc',
     renamer = TitleRenamer('CBCUnderTheInfluence').rename,
     count=2,
@@ -96,7 +89,6 @@ cbcSubscriptions = [
 
 gotime = Subscription(
     feed='https://changelog.com/gotime/feed',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
     count=8,
     name="GoTime",
@@ -105,7 +97,6 @@ gotime = Subscription(
 
 hanselMinutes = Subscription(
     feed='https://rss.simplecast.com/podcasts/4669/rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
     count=8,
     renamer = TitleRenamer('hansleminutes').rename,
@@ -115,7 +106,6 @@ hanselMinutes = Subscription(
 
 syntax = Subscription(
     feed='http://feed.syntax.fm/rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
     count=3,
     renamer = NullRenamer().rename,
@@ -125,7 +115,6 @@ syntax = Subscription(
 
 javascriptjabber = Subscription(
     feed='https://feeds.feedwrench.com/JavaScriptJabber.rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
     count=5,
     renamer = NullRenamer().rename,
@@ -134,7 +123,6 @@ javascriptjabber = Subscription(
 
 podcastinit = Subscription(
     feed='https://www.podcastinit.com/feed/mp3/',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
     count=10,
     renamer = TitleRenamer('Podcast.__init__').rename,
@@ -144,7 +132,6 @@ podcastinit = Subscription(
 
 testandcode = Subscription(
     feed='http://testandcode.com/rss/',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
     count=2,
     renamer = TitleRenamer('TestAndCode').rename,
@@ -163,7 +150,6 @@ testandcode = Subscription(
 
 talkpythontome = Subscription(
     feed='https://talkpython.fm/episodes/ogg_rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
     count=5,
     renamer = TitleITunesNumberRenamer("TalkPythonToMe").rename,
@@ -173,7 +159,6 @@ talkpythontome = Subscription(
 
 importthis = Subscription(
     feed='http://feeds.soundcloud.com/users/soundcloud:users:82237854/sounds.rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
     count=10,
     renamer = TitleRenamer("ImportThis").rename,
@@ -184,7 +169,6 @@ importthis = Subscription(
 
 fullstackradio = Subscription(
     feed='https://rss.simplecast.com/podcasts/279/rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
     count=10,
     renamer = TitleRenamer("FullStackRadio").rename,
@@ -194,7 +178,6 @@ fullstackradio = Subscription(
 
 thechangelog = Subscription(
     feed='https://changelog.com/podcast/feed',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
     count=10,
     renamer = TitleRenamer("TheChangeLog").rename,
@@ -219,7 +202,6 @@ programmingSubscriptions = [
 
 bbcanalysis =  Subscription(
     feed='http://www.bbc.co.uk/programmes/b006r4vz/episodes/downloads.rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
     count=2,
     renamer = TitleRenamer("BBCAnalysis").rename,
@@ -230,7 +212,6 @@ bbcanalysis =  Subscription(
 
 bbcwitness = Subscription(
     feed='http://www.bbc.co.uk/programmes/p004t1hd/episodes/downloads.rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
     count=7,
     renamer = TitleRenamer("BBCWitness").rename,
@@ -240,7 +221,6 @@ bbcwitness = Subscription(
 
 bbcdrkarl = Subscription(
     feed='https://podcasts.files.bbci.co.uk/p02pc9ny.rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     count=3,
     renamer = TitleRenamer("BBCDrKarl").rename,
@@ -250,7 +230,6 @@ bbcdrkarl = Subscription(
 
 fileonfour =  Subscription(
     feed='https://podcasts.files.bbci.co.uk/b006th08.rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
     count=4,
     renamer = TitleRenamer("BBCFileOnFour").rename,
@@ -260,7 +239,6 @@ fileonfour =  Subscription(
 
 scienceinaction = Subscription(
     feed='http://www.bbc.co.uk/programmes/p002vsnb/episodes/downloads.rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     count=1,
     renamer = Renamer("BBCScienceInAction").rename,
@@ -270,7 +248,6 @@ scienceinaction = Subscription(
 
 bbcgreatlives = Subscription(
     feed='http://www.bbc.co.uk/programmes/b006qxsb/episodes/downloads.rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
     count=2,
     renamer = TitleRenamer("BBCGreatLives").rename,
@@ -282,7 +259,6 @@ bbcgreatlives = Subscription(
 
 bbcinourtime = Subscription(
     feed='http://www.bbc.co.uk/programmes/b006qykl/episodes/downloads.rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
     count=1,
     renamer = TitleRenamer("BBCInOurTime").rename,
@@ -304,7 +280,6 @@ bbcSubscriptions = [
 
 thePenAddict = Subscription(
     feed='https://www.relay.fm/penaddict/feed',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/pens',
     count=2,
     renamer = NullRenamer().rename,
@@ -314,7 +289,6 @@ thePenAddict = Subscription(
 
 goulet = Subscription(
     feed='http://feeds.feedburner.com/GouletQa',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/pens',
     count=2,
     renamer = NullRenamer().rename,
@@ -332,7 +306,6 @@ class tenPerRenamer(Renamer):
 
 tenpercenthappier = Subscription(
     feed='http://feeds.feedburner.com/abcradio/10percenthappier?format=xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/buddhist',
     count=2,
     renamer = tenPerRenamer().rename,
@@ -342,7 +315,6 @@ tenpercenthappier = Subscription(
 
 ninety9percentinvisible = Subscription(
     feed='http://feeds.99percentinvisible.org/99percentinvisible',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/geek',
     count=10,
     renamer = Renamer('99PercentInvisible').rename,
@@ -357,7 +329,6 @@ class SciAmRenamer(TitleRenamer):
 
 allinthemind = Subscription(
     feed='http://www.abc.net.au/radionational/feed/2888650/podcast.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     count=2,
     renamer = TitleRenamer("AllInTheMind").rename,
@@ -367,7 +338,6 @@ allinthemind = Subscription(
 
 ockhamsrazor = Subscription(
     feed='http://www.abc.net.au/radionational/feed/2883682/podcast.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     count=2,
     renamer = TitleRenamer("OckhamsRazor").rename,
@@ -377,7 +347,6 @@ ockhamsrazor = Subscription(
 
 sixtysecondscience = Subscription(
     feed='http://rss.sciam.com/sciam/60secsciencepodcast?format=xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     count=20,
     renamer = SciAmRenamer("SixtySecondScience").rename,
@@ -387,7 +356,6 @@ sixtysecondscience = Subscription(
 
 greatmomentsinscience = Subscription(
     feed='http://www.abc.net.au/radionational/feed/7417248/podcast.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     count=108,
     renamer = TitleRenamer("GreatMomentsInScience").rename,
@@ -397,7 +365,6 @@ greatmomentsinscience = Subscription(
 
 thescienceshow = Subscription(
     feed='http://www.abc.net.au/radionational/feed/2885486/podcast.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     count=20,
     renamer = TitleRenamer("TheScienceShow").rename,
@@ -407,7 +374,6 @@ thescienceshow = Subscription(
 
 spacetime = Subscription(
     feed='https://audioboom.com/channels/4642443.rss',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     count=2,
     renamer = TitleRenamer("SpaceTime").rename,
@@ -418,7 +384,6 @@ spacetime = Subscription(
 
 enginesofingenuity = Subscription(
     feed='https://www.houstonpublicmedia.org/podcasts/engines-of-our-ingenuity/',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     count=30,
     renamer = TitleRenamer().rename,
@@ -438,7 +403,6 @@ sciencepodcasts = [
 
 heresthething = Subscription(
     feed='http://feeds.wnyc.org/wnycheresthething',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/geek',
     count=3,
     renamer = TitleRenamer('HeresTheThing').rename,
@@ -449,7 +413,6 @@ heresthething = Subscription(
 
 downloadthisshow = Subscription(
     feed='http://www.abc.net.au/radionational/feed/3777916/podcast.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/geek',
     count=2,
     renamer = TitleRenamer('DownloadThisShow').rename,
@@ -459,7 +422,6 @@ downloadthisshow = Subscription(
 
 futuretense = Subscription(
     feed='http://www.abc.net.au/radionational/feed/2883726/podcast.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/geek',
     count=2,
     renamer = TitleRenamer('FutureTense').rename,
@@ -470,7 +432,6 @@ futuretense = Subscription(
 
 thephilosopherszone = Subscription(
     feed='http://www.abc.net.au/radionational/feed/2884506/podcast.xml',
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/geek',
     count=1,
     renamer = TitleRenamer('ThePhilosophersZone').rename,
@@ -479,7 +440,6 @@ thephilosopherszone = Subscription(
 
 beyondthetodolist = Subscription(
     feed="http://feeds2.noodle.mx/beyondthetodolist",
-    log=log,
     targetDir='/home/brian/media/podcasts/podpad2/geek',
     count=1,
     renamer = TitleRenamer('BeyondTheToDoList').rename,

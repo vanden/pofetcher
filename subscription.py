@@ -3,15 +3,17 @@ import datetime, os
 import feedparser, requests
 
 from config import podcastDir, podlog
+from podlog import PodLog
 from renamer import Renamer
 
+defaultLog = PodLog(podlog)
 
 class Subscription():
 
     def __init__(self, feed=None, log=None, targetDir=podcastDir, count=5,
                  renamer=None, name=None):
         self.feed = feed
-        self.log = log
+        self.log = log or defaultLog
         self.targetDir = targetDir
         self.count = count
         self.renamer = renamer or Renamer().rename
