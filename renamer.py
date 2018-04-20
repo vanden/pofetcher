@@ -17,14 +17,14 @@ class Renamer():
         return string
 
     def rename(self, url, entry, stamp):
+        remoteFileName = url.rsplit('/', 1)[-1]
+        self.remoteBase, self.remoteExt = remoteFileName.rsplit('.', 1)
         return self.makeCandidateName(url, entry, stamp)
 
 
     # I'm trying to make this fairly easy for subclasses to alter the naming
     # pattern. I'm not succeeding.
     def makeCandidateName(self, url, entry, stamp):
-        remoteFileName = url.rsplit('/', 1)[-1]
-        base, ext = remoteFileName.rsplit('.', 1)
         idn = 0
         while True:
             idn += 1
@@ -35,8 +35,6 @@ class Renamer():
 
     def _generateName(self, url, stamp, entry, idn):
         # Duplication, but this lets the signature be simpler.
-        remoteFileName = url.rsplit('/', 1)[-1]
-        base, ext = remoteFileName.rsplit('.', 1)
 
         if idn > 1:
             num = self._getIDNumerPart(idn)
@@ -45,12 +43,12 @@ class Renamer():
             
         if self.base:
             if 'itunes_episode' in entry:
-                candidate = f"{self.base}_{entry.itunes_episode}{num}.{ext}"
+                candidate = f"{self.base}_{entry.itunes_episode}{num}.{self.remoteExt}"
             else:
                 date = stamp.strftime("%Y%m%d")
-                candidate = f"{self.base}_{date}{num}.{ext}"
+                candidate = f"{self.base}_{date}{num}.{self.remoteExt}"
         else:
-            candidate = f"{base}{num}.{ext}"
+            candidate = f"{self.remoteBase}{num}.{self.remoteExt}"
         return candidate
 
     def _getIDNumerPart(self, idn): 
@@ -64,21 +62,17 @@ class Renamer():
 
 class NullRenamer(Renamer):
     def _generateName(self, url, stamp, entry, idn):
-        remoteFileName = url.rsplit('/', 1)[-1]
-        base, ext = remoteFileName.rsplit('.', 1)
 
         if idn > 1:
             num = f"_{idn:03}"
         else:
             num = ''
 
-        return f"{base}{num}.{ext}"
+        return f"{self.remoteBase}{num}.{self.remoteExt}"
 
 
 class BaseTitleITunesNumberRenamer(Renamer):
     def _generateName(self, url, stamp, entry, idn):
-        remoteFileName = url.rsplit('/', 1)[-1]
-        base, ext = remoteFileName.rsplit('.', 1)
     
         if idn > 1:
             num = f"_{idn:03}"
@@ -86,12 +80,10 @@ class BaseTitleITunesNumberRenamer(Renamer):
             num = ''
 
         return self._clean(
-            f"{self.base}_{entry.itunes_episode}_{entry.title}_{num}.{ext}")
+            f"{self.base}_{entry.itunes_episode}_{entry.title}_{num}.{self.remoteExt}")
 
 class BBCRenamer(Renamer):
     def _generateName(self, url, stamp, entry, idn):
-        remoteFileName = url.rsplit('/', 1)[-1]
-        base, ext = remoteFileName.rsplit('.', 1)
 
         if idn > 1:
             num = f"_{idn:03}"
@@ -99,22 +91,20 @@ class BBCRenamer(Renamer):
             num = ''
 
         return self._clean(
-            f"BBC{self.base}_{stamp}{num}.{ext}")
+            f"BBC{self.base}_{stamp}{num}.{self.remoteExt}")
         
 
 class TitleRenamer(Renamer):
     def _generateName(self, url, stamp, entry, idn):
-        remoteFileName = url.rsplit('/', 1)[-1]
-        base, ext = remoteFileName.rsplit('.', 1)
         
         if idn > 1:
             num = f"_{idn:03}"
         else:
             num = ''
         if self.base:
-            name = f"{self.base}_{entry.title}_{stamp}_{num}.{ext}"
+            name = f"{self.base}_{entry.title}_{stamp}_{num}.{self.remoteExt}"
         else:
-            name = f"{entry.title}_{stamp}_{num}.{ext}"
+            name = f"{entry.title}_{stamp}_{num}.{self.remoteExt}"
         name = self._processHook(name)
         return self._clean(name)
 
