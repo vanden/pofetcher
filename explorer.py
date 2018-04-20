@@ -73,11 +73,6 @@ for entry in feed['entries']:
     if 'title_detail' in entry:
         print(f"title_detail of entry: {entry.title_detail}\n\n\n")
 
-
-    # for k in entry:
-    #     print(k)
-    #     print()
-
     print(entry.keys())
 
     raise
