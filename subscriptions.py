@@ -1,4 +1,4 @@
-from renamer import Renamer, NullRenamer, TitleITunesNumberRenamer, BBCRenamer
+from renamer import Renamer, NullRenamer, TitleITunesNumberRenamer
 from renamer import TitleRenamer
 
 from config import podlog
@@ -222,7 +222,7 @@ bbcanalysis =  Subscription(
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
     count=1,
-    renamer = BBCRenamer("Analysis").rename,
+    renamer = Renamer("BBCAnalysis").rename,
     name = "BBCAnalysis"
 )
 
@@ -233,7 +233,7 @@ bbcwitness =  Subscription(
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
     count=5,
-    renamer = BBCRenamer("Witness").rename,
+    renamer = Renamer("BBCWitness").rename,
     name = "BBCWitness"
 )
 
@@ -243,7 +243,7 @@ bbcdrkarl =  Subscription(
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     count=2,
-    renamer = BBCRenamer("DrKarl").rename,
+    renamer = Renamer("BBCDrKarl").rename,
     name = "BBCDrKarl"
 )
 
@@ -253,7 +253,7 @@ bbcgreatlives = Subscription(
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
     count=5,
-    renamer = BBCRenamer("GreatLives").rename,
+    renamer = Renamer("BBCGreatLives").rename,
     name = "BBCGreatLives"
 )
 

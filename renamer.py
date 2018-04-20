@@ -73,15 +73,6 @@ class TitleITunesNumberRenamer(Renamer):
 
 
 
-class BBCRenamer(Renamer):
-    def _generateName(self, url, stamp, entry, idn):
-
-        num = self._getIDNumerPart(idn)
-        return self._clean(
-            f"BBC{self.base}_{stamp}{num}.{self.remoteExt}")
-
-
-
 class TitleRenamer(Renamer):
     def _generateName(self, url, stamp, entry, idn):
 
