@@ -35,7 +35,7 @@ otherpeoplesproblems = Subscription(
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/cbc',
     renamer = TitleRenamer('CBCOtherPeoplesProblems').rename,
-    count=111,
+    count=2,
     name="Other Peoples Problems"
 )
 
@@ -45,7 +45,7 @@ ondrugs = Subscription(
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/cbc',
     renamer = TitleRenamer('CBCOnDrugs').rename,
-    count=533,
+    count=3,
     name="On Drugs"
 )
 
@@ -55,7 +55,7 @@ whitecoat = Subscription(
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/cbc',
     renamer = TitleRenamer('CBCWhiteCoatBlackArt').rename,
-    count=111,
+    count=3,
     name="White Coat Black Art"
 )
 
@@ -65,7 +65,7 @@ spark = Subscription(
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/cbc',
     renamer = TitleRenamer('CBCSpark').rename,
-    count=111,
+    count=3,
     name="Spark"
 )
 
@@ -76,7 +76,7 @@ undertheinfluence = Subscription(
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/cbc',
     renamer = TitleRenamer('CBCUnderTheInfluence').rename,
-    count=411,
+    count=2,
     name="Under The Influence"
 )
 
@@ -98,7 +98,7 @@ gotime = Subscription(
     feed='https://changelog.com/gotime/feed',
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
-    count=10,
+    count=8,
     name="GoTime",
 )
 
@@ -107,7 +107,7 @@ hanselMinutes = Subscription(
     feed='https://rss.simplecast.com/podcasts/4669/rss',
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
-    count=10,
+    count=8,
     renamer = TitleRenamer('hansleminutes').rename,
     name = "HanselMinutes",
 )
@@ -146,7 +146,7 @@ testandcode = Subscription(
     feed='http://testandcode.com/rss/',
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
-    count=82,
+    count=2,
     renamer = TitleRenamer('TestAndCode').rename,
     name = "TestAndCode"
 )
@@ -252,7 +252,7 @@ fileonfour =  Subscription(
     feed='https://podcasts.files.bbci.co.uk/b006th08.rss',
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
-    count=1,
+    count=4,
     renamer = TitleRenamer("BBCFileOnFour").rename,
     name = "BBCFileOnFour"
 )
@@ -272,7 +272,7 @@ bbcgreatlives = Subscription(
     feed='http://www.bbc.co.uk/programmes/b006qxsb/episodes/downloads.rss',
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
-    count=6,
+    count=2,
     renamer = TitleRenamer("BBCGreatLives").rename,
     name = "BBCGreatLives"
 )
