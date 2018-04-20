@@ -17,7 +17,7 @@ class Subscription():
         self.renamer = renamer or Renamer().rename
         self.name = name
 
-        # To prevent duplicate fetching which occurrs with some feeds
+        # To prevent duplicate fetching which occurs with some feeds
         self.fetched = []
 
 
