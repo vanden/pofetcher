@@ -221,35 +221,44 @@ bbcanalysis =  Subscription(
     feed='http://www.bbc.co.uk/programmes/b006r4vz/episodes/downloads.rss',
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
-    count=1,
-    renamer = Renamer("BBCAnalysis").rename,
+    count=2,
+    renamer = TitleRenamer("BBCAnalysis").rename,
     name = "BBCAnalysis"
 )
 
 
 
-bbcwitness =  Subscription(
+bbcwitness = Subscription(
     feed='http://www.bbc.co.uk/programmes/p004t1hd/episodes/downloads.rss',
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
-    count=5,
-    renamer = Renamer("BBCWitness").rename,
+    count=7,
+    renamer = TitleRenamer("BBCWitness").rename,
     name = "BBCWitness"
 )
 
 
-bbcdrkarl =  Subscription(
+bbcdrkarl = Subscription(
     feed='https://podcasts.files.bbci.co.uk/p02pc9ny.rss',
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
-    count=2,
-    renamer = Renamer("BBCDrKarl").rename,
+    count=3,
+    renamer = TitleRenamer("BBCDrKarl").rename,
     name = "BBCDrKarl"
 )
 
 
+fileonfour =  Subscription(
+    feed='https://podcasts.files.bbci.co.uk/b006th08.rss',
+    log=log,
+    targetDir='/home/brian/media/podcasts/podpad2/bbc',
+    count=1,
+    renamer = TitleRenamer("BBCFileOnFour").rename,
+    name = "BBCFileOnFour"
+)
 
-scienceinaction =  Subscription(
+
+scienceinaction = Subscription(
     feed='http://www.bbc.co.uk/programmes/p002vsnb/episodes/downloads.rss',
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/sci',
@@ -263,8 +272,8 @@ bbcgreatlives = Subscription(
     feed='http://www.bbc.co.uk/programmes/b006qxsb/episodes/downloads.rss',
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
-    count=5,
-    renamer = Renamer("BBCGreatLives").rename,
+    count=6,
+    renamer = TitleRenamer("BBCGreatLives").rename,
     name = "BBCGreatLives"
 )
 
@@ -283,6 +292,7 @@ bbcinourtime = Subscription(
 
 
 bbcSubscriptions = [
+    fileonfour,
     bbcinourtime,
     bbcanalysis,
     bbcwitness,
@@ -467,8 +477,18 @@ thephilosopherszone = Subscription(
     name = "ThePhilosophersZone"
 )
 
+beyondthetodolist = Subscription(
+    feed="http://feeds2.noodle.mx/beyondthetodolist",
+    log=log,
+    targetDir='/home/brian/media/podcasts/podpad2/geek',
+    count=1,
+    renamer = TitleRenamer('BeyondTheToDoList').rename,
+    name = "BeyondTheToDoList"
+)
+
 
 geekSubscriptions = [
+    beyondthetodolist,
     heresthething,
     downloadthisshow,
     goulet,
@@ -483,8 +503,9 @@ geekSubscriptions = [
 
 subscriptions = []
 for sub in [
-        cbcSubscriptions,
         bbcSubscriptions,
+        cbcSubscriptions,
+
         sciencepodcasts,
         programmingSubscriptions,
         geekSubscriptions,
