@@ -56,14 +56,14 @@ class Renamer():
 
 class NullRenamer(Renamer):
     def _generateName(self, url, stamp, entry, idn):
-        num = _getIDNumerPart(idn)
+        num = self._getIDNumerPart(idn)
         return f"{self.remoteBase}{num}.{self.remoteExt}"
 
 
 
 class BaseTitleITunesNumberRenamer(Renamer):
     def _generateName(self, url, stamp, entry, idn):
-        num = _getIDNumerPart(idn)
+        num = self._getIDNumerPart(idn)
         return self._clean(
             f"{self.base}_{entry.itunes_episode}_{entry.title}_{num}.{self.remoteExt}")
 
@@ -72,16 +72,15 @@ class BaseTitleITunesNumberRenamer(Renamer):
 class BBCRenamer(Renamer):
     def _generateName(self, url, stamp, entry, idn):
 
-        num = _getIDNumerPart(idn)
+        num = self._getIDNumerPart(idn)
         return self._clean(
             f"BBC{self.base}_{stamp}{num}.{self.remoteExt}")
-
 
 
 class TitleRenamer(Renamer):
     def _generateName(self, url, stamp, entry, idn):
 
-        num = _getIDNumerPart(idn)
+        num = self._getIDNumerPart(idn)
         if self.base:
             name = f"{self.base}_{entry.title}_{stamp}_{num}.{self.remoteExt}"
         else:
