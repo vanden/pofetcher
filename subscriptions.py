@@ -248,6 +248,17 @@ bbcdrkarl =  Subscription(
 )
 
 
+
+scienceinaction =  Subscription(
+    feed='http://www.bbc.co.uk/programmes/p002vsnb/episodes/downloads.rss',
+    log=log,
+    targetDir='/home/brian/media/podcasts/podpad2/sci',
+    count=1,
+    renamer = Renamer("BBCScienceInAction").rename,
+    name = "BBCScienceInAction"
+)
+
+
 bbcgreatlives = Subscription(
     feed='http://www.bbc.co.uk/programmes/b006qxsb/episodes/downloads.rss',
     log=log,
@@ -258,7 +269,21 @@ bbcgreatlives = Subscription(
 )
 
 
+
+
+bbcinourtime = Subscription(
+    feed='http://www.bbc.co.uk/programmes/b006qykl/episodes/downloads.rss',
+    log=log,
+    targetDir='/home/brian/media/podcasts/podpad2/bbc',
+    count=1,
+    renamer = TitleRenamer("BBCInOurTime").rename,
+    name = "BBCInOurTime"
+)
+
+
+
 bbcSubscriptions = [
+    bbcinourtime,
     bbcanalysis,
     bbcwitness,
     bbcdrkarl,
@@ -320,6 +345,26 @@ class SciAmRenamer(TitleRenamer):
         return front + '.mp3'
 
 
+allinthemind = Subscription(
+    feed='http://www.abc.net.au/radionational/feed/2888650/podcast.xml',
+    log=log,
+    targetDir='/home/brian/media/podcasts/podpad2/sci',
+    count=2,
+    renamer = TitleRenamer("AllInTheMind").rename,
+    name = "AllInTheMind"
+)
+
+
+ockhamsrazor = Subscription(
+    feed='http://www.abc.net.au/radionational/feed/2883682/podcast.xml',
+    log=log,
+    targetDir='/home/brian/media/podcasts/podpad2/sci',
+    count=2,
+    renamer = TitleRenamer("OckhamsRazor").rename,
+    name = "OckhamsRazor"
+)
+
+
 sixtysecondscience = Subscription(
     feed='http://rss.sciam.com/sciam/60secsciencepodcast?format=xml',
     log=log,
@@ -372,9 +417,12 @@ enginesofingenuity = Subscription(
 
 
 sciencepodcasts = [
+    scienceinaction,
     sixtysecondscience,
     greatmomentsinscience,
-    thescienceshow
+    thescienceshow,
+    allinthemind,
+    ockhamsrazor
 ]
 
 
@@ -399,6 +447,25 @@ downloadthisshow = Subscription(
 )
 
 
+futuretense = Subscription(
+    feed='http://www.abc.net.au/radionational/feed/2883726/podcast.xml',
+    log=log,
+    targetDir='/home/brian/media/podcasts/podpad2/geek',
+    count=2,
+    renamer = TitleRenamer('FutureTense').rename,
+    name = "FutureTense"
+)
+
+
+
+thephilosopherszone = Subscription(
+    feed='http://www.abc.net.au/radionational/feed/2884506/podcast.xml',
+    log=log,
+    targetDir='/home/brian/media/podcasts/podpad2/geek',
+    count=1,
+    renamer = TitleRenamer('ThePhilosophersZone').rename,
+    name = "ThePhilosophersZone"
+)
 
 
 geekSubscriptions = [
@@ -408,7 +475,9 @@ geekSubscriptions = [
     thePenAddict,
     tenpercenthappier,
     ninety9percentinvisible,
-    enginesofingenuity
+    enginesofingenuity,
+    futuretense,
+    thephilosopherszone
 ]
 
 
