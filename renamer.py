@@ -53,6 +53,10 @@ class Renamer():
         return num
 
 
+    def _processHook(self, name):
+        return name
+
+
 
 class NullRenamer(Renamer):
     def _generateName(self, url, stamp, entry, idn):
@@ -89,6 +93,3 @@ class TitleRenamer(Renamer):
         name = f"{base}{entry.title}_{stamp}_{num}.{self.remoteExt}"
         name = self._processHook(name)
         return self._clean(name)
-
-    def _processHook(self, name):
-        return name
