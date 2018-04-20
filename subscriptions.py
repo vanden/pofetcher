@@ -1,4 +1,4 @@
-from renamer import Renamer, NullRenamer, BaseTitleITunesNumberRenamer, BBCRenamer
+from renamer import Renamer, NullRenamer, TitleITunesNumberRenamer, BBCRenamer
 from renamer import TitleRenamer
 
 from config import podlog
@@ -167,7 +167,7 @@ talkpythontome = Subscription(
     log=log,
     targetDir='/home/brian/media/podcasts/podpad2/prog',
     count=5,
-    renamer = BaseTitleITunesNumberRenamer("TalkPythonToMe").rename,
+    renamer = TitleITunesNumberRenamer("TalkPythonToMe").rename,
     name = "TalkPythonToMe"
 )
 

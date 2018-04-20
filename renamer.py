@@ -61,7 +61,7 @@ class NullRenamer(Renamer):
 
 
 
-class BaseTitleITunesNumberRenamer(Renamer):
+class TitleITunesNumberRenamer(Renamer):
     def _generateName(self, url, stamp, entry, idn):
         num = self._getIDNumerPart(idn)
         return self._clean(
