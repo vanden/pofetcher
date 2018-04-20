@@ -73,26 +73,11 @@ class Subscription():
         self.log.update(url)
 
 
-    def _makeDateTimeStamp(self, entry):
-        dts = None
-        if 'published_parsed' in entry:
-            dts = entry.published_parsed
-        elif 'created_parsed' in entry:
-            dts = entry.created_parsed
-        if dts:
-            stamp = datetime.datetime(dts.tm_year, dts.tm_mon,
-                                      dts.tm_mday, dts.tm_hour,
-                                      dts.tm_min, dts.tm_sec)
-        else:
-            stamp = datetime.datetime.now()
-        return stamp
-
 
     def _makeLocalName(self, url, entry):
-        stamp = self._makeDateTimeStamp(entry)
         localName = os.path.join(self.targetDir,
-                                 self.renamer(url, entry, stamp))
+                                 self.renamer(url, entry))
         while os.path.isfile(localName):
             localName = os.path.join(self.targetDir,
-                                     self.renamer(url, entry, stamp))
+                                     self.renamer(url, entry))
         return localName

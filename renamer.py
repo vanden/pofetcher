@@ -1,3 +1,4 @@
+import datetime
 
 class Renamer():
 
@@ -16,8 +17,23 @@ class Renamer():
 
         return string
 
+    def _makeDateTimeStamp(self, entry):
+        dts = None
+        if 'published_parsed' in entry:
+            dts = entry.published_parsed
+        elif 'created_parsed' in entry:
+            dts = entry.created_parsed
+        if dts:
+            stamp = datetime.datetime(dts.tm_year, dts.tm_mon,
+                                      dts.tm_mday, dts.tm_hour,
+                                      dts.tm_min, dts.tm_sec)
+        else:
+            stamp = datetime.datetime.now()
+        return stamp
 
-    def rename(self, url, entry, stamp):
+
+    def rename(self, url, entry):
+        stamp = self._makeDateTimeStamp(entry)
         remoteFileName = url.rsplit('/', 1)[-1]
         self.remoteBase, self.remoteExt = remoteFileName.rsplit('.', 1)
         return self.makeCandidateName(url, entry, stamp)
