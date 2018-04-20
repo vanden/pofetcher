@@ -217,6 +217,15 @@ programmingSubscriptions = [
 ]
 
 
+bbcanalysis =  Subscription(
+    feed='http://www.bbc.co.uk/programmes/b006r4vz/episodes/downloads.rss',
+    log=log,
+    targetDir='/home/brian/media/podcasts/podpad2/bbc',
+    count=1,
+    renamer = BBCRenamer("Analysis").rename,
+    name = "BBCAnalysis"
+)
+
 
 
 bbcwitness =  Subscription(
@@ -250,6 +259,7 @@ bbcgreatlives = Subscription(
 
 
 bbcSubscriptions = [
+    bbcanalysis,
     bbcwitness,
     bbcdrkarl,
     bbcgreatlives
