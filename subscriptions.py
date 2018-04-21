@@ -11,17 +11,17 @@ log = PodLog(podlog)
 from subscription import Subscription, M, T, W, TH, F, S, SA, SN
 from subscription import WEEKDAYS, WEEKEND, ALLWEEK, THISDAY
 
-# Obviously, this should be expressed with os.path.join. FixMe
-geekDir = '/home/brian/media/podcasts/podpad2/geek'
-sciDir = '/home/brian/media/podcasts/podpad2/sci'
-penDir = '/home/brian/media/podcasts/podpad2/pens'
-linuxDir = '/home/brian/media/podcasts/podpad2/linux'
-bbcDir = '/home/brian/media/podcasts/podpad2/bbc'
-newsDir = '/home/brian/media/podcasts/podpad2/news'
-cbcDir = '/home/brian/media/podcasts/podpad2/cbc'
-programmingDir = '/home/brian/media/podcasts/podpad2/prog'
+poddir = '/home/brian/media/podcasts/podpad2'
+bbcDir = os.path.join(poddir, 'bbc')
+cbcDir = os.path.join(poddir, 'cbc')
+geekDir = os.path.join(poddir, 'geek')
+linuxDir = os.path.join(poddir, 'linux')
+newsDir = os.path.join(poddir, 'news')
+penDir = os.path.join(poddir, 'pens')
+philDir = os.path.join(poddir, 'phil')
+programmingDir = os.path.join(poddir, 'prog')
+sciDir = os.path.join(poddir, 'sci')
 
-cbcSubscriptions = []
 quirks = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/quirks.xml',
     targetDir=sciDir,
@@ -610,7 +610,7 @@ futuretense = Subscription(
 
 thephilosopherszone = Subscription(
     feed='http://www.abc.net.au/radionational/feed/2884506/podcast.xml',
-    targetDir=geekDir,
+    targetDir=philDir,
     count=1,
     renamer = TitleRenamer('ThePhilosophersZone').rename,
     name = "ThePhilosophersZone"
