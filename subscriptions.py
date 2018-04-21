@@ -263,7 +263,7 @@ bbcipm = Subscription(
 )
 
 
-bbcdiscovery =  Subscription(
+bbcdiscovery = Subscription(
     feed='https://podcasts.files.bbci.co.uk/p002w557.rss',
     targetDir=sciDir,
     count=1,
@@ -473,10 +473,6 @@ ninety9percentinvisible = Subscription(
     name = "99 Percent Invisible"
 )
 
-class SciAmRenamer(TitleRenamer):
-    def _processHook(self, name):
-        front = name.split(".mp3")[0]
-        return front + '.mp3'
 
 
 allinthemind = Subscription(
@@ -496,6 +492,10 @@ ockhamsrazor = Subscription(
     name = "OckhamsRazor"
 )
 
+class SciAmRenamer(TitleRenamer):
+    def _processHook(self, name):
+        front = name.split(".mp3")[0]
+        return front + '.mp3'
 
 sixtysecondscience = Subscription(
     feed='http://rss.sciam.com/sciam/60secsciencepodcast?format=xml',
@@ -653,8 +653,8 @@ flossweekly = Subscription(
 
 linuxSubscriptions = [
     linuxvoice,
-    ubunutuuk,
     flossweekly,
+    ubunutuuk,
 ]
 
 
