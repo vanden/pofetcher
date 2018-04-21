@@ -1,7 +1,7 @@
 import feedparser
 
 #feed_to_explore = "https://rss.simplecast.com/podcasts/4669/rss"
-feed_to_explore = "http://www.cbc.ca/podcasting/includes/quirks.xml"
+feed_to_explore = "http://feeds.twit.tv/floss.xml"
 feed = feedparser.parse(feed_to_explore)
 if 'title' in feed:
     print(f"Feed title: {feed.title}")

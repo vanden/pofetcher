@@ -24,11 +24,10 @@ class Renamer():
         elif 'created_parsed' in entry:
             dts = entry.created_parsed
         if dts:
-            stamp = datetime.datetime(dts.tm_year, dts.tm_mon,
-                                      dts.tm_mday, dts.tm_hour,
-                                      dts.tm_min, dts.tm_sec)
+            stamp = datetime.date(dts.tm_year, dts.tm_mon,
+                                  dts.tm_mday)
         else:
-            stamp = datetime.datetime.now()
+            stamp = datetime.date.today()
         return stamp
 
 
@@ -98,5 +97,5 @@ class TitleRenamer(Renamer):
             base = f"{self.base}_"
         else:
             base = ""
-        name = f"{base}{entry.title}_{stamp}_{num}.{self.remoteExt}"
+        name = f"{base}{stamp}_{entry.title}{num}.{self.remoteExt}"
         return self._clean(name)
