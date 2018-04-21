@@ -60,9 +60,9 @@ ondrugs = Subscription(
 
 whitecoat = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/whitecoat.xml',
-    targetDir=cbcDir,
+    targetDir=sciDir,
     renamer = TitleRenamer('CBCWhiteCoatBlackArt').rename,
-    count=3,
+    count=5,
     name="White Coat Black Art"
 )
 
@@ -241,11 +241,10 @@ bbclifescientific = Subscription(
 )
 
 
-
 bbcmediashow = Subscription(
     feed="http://www.bbc.co.uk/programmes/b00dv9hq/episodes/downloads.rss",
     targetDir=bbcDir,
-    count=1,
+    count=4,
     renamer = TitleRenamer("BBCMediaShow").rename,
     name = "BBCMediaShow",
     days = [T,W,TH]
@@ -381,8 +380,6 @@ bbcgreatlives = Subscription(
 )
 
 
-
-
 bbcinourtime = Subscription(
     feed='http://www.bbc.co.uk/programmes/b006qykl/episodes/downloads.rss',
     targetDir=bbcDir,
@@ -393,9 +390,6 @@ bbcinourtime = Subscription(
 )
 
 
-
-
-
 bbcmoralmaze = Subscription(
     feed='http://www.bbc.co.uk/programmes/b006qk11/episodes/downloads.rss',
     targetDir=bbcDir,
@@ -404,7 +398,6 @@ bbcmoralmaze = Subscription(
     name = "BBCMoralMaze",
     days = [T,W,TH],
 )
-
 
 
 bbcr4report = Subscription(
