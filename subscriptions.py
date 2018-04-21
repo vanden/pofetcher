@@ -6,7 +6,8 @@ from podlog import PodLog
 log = PodLog(podlog)
 
 
-from subscription import Subscription
+from subscription import Subscription, M, T, W, TH, F, S, SA, SN
+from subscription import WEEKDAYS, WEEKEND, ALLWEEK, THISDAY
 
 # Obviously, this should be expressed with os.path.join. FixMe
 geekDir = '/home/brian/media/podcasts/podpad2/geek'
@@ -214,7 +215,8 @@ bbcanalysis = Subscription(
     targetDir=bbcDir,
     count=2,
     renamer = TitleRenamer("BBCAnalysis").rename,
-    name = "BBCAnalysis"
+    name = "BBCAnalysis",
+    days = [SN,M,T]
 )
 
 
@@ -223,7 +225,8 @@ bbceverydayethics = Subscription(
     targetDir=bbcDir,
     count=1,
     renamer = TitleRenamer("BBCEveryDayEthics").rename,
-    name = "BBCEveryDayEthics"
+    name = "BBCEveryDayEthics",
+    days = WEEKEND,
 )
 
 bbclifescientific = Subscription(
@@ -231,7 +234,8 @@ bbclifescientific = Subscription(
     targetDir=sciDir,
     count=1,
     renamer = TitleRenamer("BBCLifeScientific").rename,
-    name = "BBCLifeScientific"
+    name = "BBCLifeScientific",
+    days = [M,T,W]
 )
 
 
@@ -241,7 +245,8 @@ bbcmediashow = Subscription(
     targetDir=bbcDir,
     count=1,
     renamer = TitleRenamer("BBCMediaShow").rename,
-    name = "BBCMediaShow"
+    name = "BBCMediaShow",
+    days = [T,W,TH]
 )
 
 
@@ -250,7 +255,8 @@ bbcprofile = Subscription(
     targetDir=bbcDir,
     count=1,
     renamer = TitleRenamer("BBCProfile").rename,
-    name = "BBCProfile"
+    name = "BBCProfile",
+    days = WEEKEND,
 )
 
 
@@ -259,7 +265,8 @@ bbcipm = Subscription(
     targetDir=bbcDir,
     count=1,
     renamer = TitleRenamer("BBCiPM").rename,
-    name = "BBCiPM"
+    name = "BBCiPM",
+    days = [TH,F,SA],
 )
 
 
@@ -268,7 +275,8 @@ bbcdiscovery = Subscription(
     targetDir=sciDir,
     count=1,
     renamer = TitleRenamer("BBCDiscovery").rename,
-    name = "BBCDiscovery"
+    name = "BBCDiscovery",
+    days = [SN, M, T]
 )
 
 
@@ -277,7 +285,8 @@ bbcmoreorless = Subscription(
     targetDir=bbcDir,
     count=1,
     renamer = TitleRenamer("BBCMoreOrLess").rename,
-    name = "BBCMoreOrLess"
+    name = "BBCMoreOrLess",
+    days = ALLWEEK,
 )
 
 bbcwhyfactor =Subscription(
@@ -285,7 +294,8 @@ bbcwhyfactor =Subscription(
     targetDir=bbcDir,
     count=1,
     renamer = TitleRenamer("BBCWhyFactor").rename,
-    name = "BBCWhyFactor"
+    name = "BBCWhyFactor",
+    days = [SN, M, T]
 )
 
 bbcwitness = Subscription(
@@ -293,7 +303,8 @@ bbcwitness = Subscription(
     targetDir=bbcDir,
     count=7,
     renamer = TitleRenamer("BBCWitness").rename,
-    name = "BBCWitness"
+    name = "BBCWitness",
+    days = WEEKDAYS,
 )
 
 
@@ -303,7 +314,8 @@ bbcdrkarl = Subscription(
     count=3,
     # Leaving it as title to see if it distinguishes dr karl from non
     renamer = TitleRenamer("BBCDrKarl").rename,
-    name = "BBCDrKarl"
+    name = "BBCDrKarl",
+    days = [W,TH,F,SA,SN,M]
 )
 
 
@@ -312,7 +324,8 @@ bbcclick = Subscription(
     targetDir=geekDir,
     count=1,
     renamer = TitleRenamer("BBCClick").rename,
-    name = "BBCClick"
+    name = "BBCClick",
+    days = [M,T,W]
 )
 
 
@@ -321,7 +334,8 @@ bbceddiemair = Subscription(
     targetDir=bbcDir,
     count=1,
     renamer = TitleRenamer("BBCEddieMair").rename,
-    name = "BBCEddieMair"
+    name = "BBCEddieMair",
+    days = WEEKEND
 )
 
 
@@ -330,7 +344,8 @@ bbctechtent = Subscription(
     targetDir=geekDir,
     count=1,
     renamer = TitleRenamer("BBCTechTent").rename,
-    name = "BBCTechTent"
+    name = "BBCTechTent",
+    days = [TH, F, SA]
 )
 
 
@@ -339,7 +354,8 @@ bbcfileonfour =  Subscription(
     targetDir=bbcDir,
     count=4,
     renamer = TitleRenamer("BBCFileOnFour").rename,
-    name = "BBCFileOnFour"
+    name = "BBCFileOnFour",
+    days = [M,T,W]
 )
 
 
@@ -348,7 +364,8 @@ bbcscienceinaction = Subscription(
     targetDir=sciDir,
     count=1,
     renamer = Renamer("BBCScienceInAction").rename,
-    name = "BBCScienceInAction"
+    name = "BBCScienceInAction",
+    days = [W,TH,F]
 )
 
 
@@ -357,7 +374,8 @@ bbcgreatlives = Subscription(
     targetDir=bbcDir,
     count=2,
     renamer = TitleRenamer("BBCGreatLives").rename,
-    name = "BBCGreatLives"
+    name = "BBCGreatLives",
+    days = [M,T,W]
 )
 
 
@@ -368,7 +386,8 @@ bbcinourtime = Subscription(
     targetDir=bbcDir,
     count=1,
     renamer = TitleRenamer("BBCInOurTime").rename,
-    name = "BBCInOurTime"
+    name = "BBCInOurTime",
+    days = [W,TH,F]
 )
 
 
@@ -380,7 +399,8 @@ bbcmoralmaze = Subscription(
     targetDir=bbcDir,
     count=1,
     renamer = TitleRenamer("BBCMoralMaze").rename,
-    name = "BBCMoralMaze"
+    name = "BBCMoralMaze",
+    days = [T,W,TH],
 )
 
 
@@ -390,7 +410,8 @@ bbcr4report = Subscription(
     targetDir=bbcDir,
     count=1,
     renamer = TitleRenamer("BBCR4Report").rename,
-    name = "BBCR4Report"
+    name = "BBCR4Report",
+    days = [W,TH,F],
 )
 
 
@@ -399,7 +420,8 @@ bbcinsidescience = Subscription(
     targetDir=sciDir,
     count=1,
     renamer = TitleRenamer("BBCInsideScience").rename,
-    name = "BBCInsideScience"
+    name = "BBCInsideScience",
+    days = [W,TH,F]
 )
 
 bbcmonkeycage = Subscription(
@@ -407,7 +429,8 @@ bbcmonkeycage = Subscription(
     targetDir=sciDir,
     count=1,
     renamer = TitleRenamer("BBCMonkeyCage").rename,
-    name = "BBCMonkeyCage"
+    name = "BBCMonkeyCage",
+    days = [SN,M,T]
 )
 
 

@@ -6,32 +6,42 @@ from config import podcastDir, podlog
 from podlog import PodLog
 from renamer import Renamer
 
+M, T, W, TH, F, S, SN = range(7)
+SA = S
+WEEKDAYS = [M, T, W, TH, F, S]
+WEEKEND = [F, S, SN, M]
+ALLWEEK = [M,T,W,TH,F,S,SN]
+
+THISDAY = datetime.datetime.now().weekday()
+
 defaultLog = PodLog(podlog)
 
 class Subscription():
 
     def __init__(self, feed=None, log=None, targetDir=podcastDir, count=5,
-                 renamer=None, name=None):
+                 renamer=None, name=None, days=None):
         self.feed = feed
         self.log = log or defaultLog
         self.targetDir = targetDir
         self.count = count
         self.renamer = renamer or Renamer().rename
         self.name = name
+        self.days = days or ALLWEEK
 
         # To prevent duplicate fetching which occurs with some feeds
         self.fetched = []
 
 
     def parseFeed(self):
-        print(f"Parsing {self.name}")
-        feed = feedparser.parse(self.feed)
-        entriesToFetch = []
-        for entry in feed['entries'][:self.count]:
-            if 'enclosures' in entry:
-                entriesToFetch.append(entry)
+        if THISDAY in self.days:
+            print(f"Parsing {self.name}")
+            feed = feedparser.parse(self.feed)
+            entriesToFetch = []
+            for entry in feed['entries'][:self.count]:
+                if 'enclosures' in entry:
+                    entriesToFetch.append(entry)
 
-        self._fetch(entriesToFetch)
+            self._fetch(entriesToFetch)
 
 
     def _fetch(self, entries):
