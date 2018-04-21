@@ -200,12 +200,47 @@ programmingSubscriptions = [
 ]
 
 
-bbcanalysis =  Subscription(
+bbcanalysis = Subscription(
     feed='http://www.bbc.co.uk/programmes/b006r4vz/episodes/downloads.rss',
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
     count=2,
     renamer = TitleRenamer("BBCAnalysis").rename,
     name = "BBCAnalysis"
+)
+
+
+bbceverydayethics = Subscription(
+    feed='http://www.bbc.co.uk/programmes/p02nrsmh/episodes/downloads.rss',
+    targetDir='/home/brian/media/podcasts/podpad2/bbc',
+    count=1,
+    renamer = TitleRenamer("BBCEveryDayEthics").rename,
+    name = "BBCEveryDayEthics"
+)
+
+bbclifescientific = Subscription(
+    feed="http://www.bbc.co.uk/programmes/b015sqc7/episodes/downloads.rss",
+    targetDir='/home/brian/media/podcasts/podpad2/sci',
+    count=1,
+    renamer = TitleRenamer("BBCLifeScientific").rename,
+    name = "BBCLifeScientific"
+)
+
+
+bbcipm = Subscription(
+    feed='http://www.bbc.co.uk/programmes/p02nrtwc/episodes/downloads.rss',
+    targetDir='/home/brian/media/podcasts/podpad2/bbc',
+    count=1,
+    renamer = TitleRenamer("BBCiPM").rename,
+    name = "BBCiPM"
+)
+
+
+bbcdiscovery =  Subscription(
+    feed='https://podcasts.files.bbci.co.uk/p002w557.rss',
+    targetDir='/home/brian/media/podcasts/podpad2/sci',
+    count=1,
+    renamer = TitleRenamer("BBCDiscovery").rename,
+    name = "BBCDiscovery"
 )
 
 
@@ -223,12 +258,40 @@ bbcdrkarl = Subscription(
     feed='https://podcasts.files.bbci.co.uk/p02pc9ny.rss',
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     count=3,
+    # Leaving it as title to see if it distinguishes dr karl from non
     renamer = TitleRenamer("BBCDrKarl").rename,
     name = "BBCDrKarl"
 )
 
 
-fileonfour =  Subscription(
+bbcclick = Subscription(
+    feed='http://www.bbc.co.uk/programmes/p002w6r2/episodes/downloads.rss',
+    targetDir='/home/brian/media/podcasts/podpad2/geek',
+    count=1,
+    renamer = TitleRenamer("BBCClick").rename,
+    name = "BBCClick"
+)
+
+
+bbceddiemair = Subscription(
+    feed='http://www.bbc.co.uk/programmes/p03m4q5s/episodes/downloads.rss',
+    targetDir='/home/brian/media/podcasts/podpad2/bbc',
+    count=1,
+    renamer = TitleRenamer("BBCEddieMair").rename,
+    name = "BBCEddieMair"
+)
+
+
+bbctechtent = Subscription(
+    feed='http://www.bbc.co.uk/programmes/p01plr2p/episodes/downloads.rss',
+    targetDir='/home/brian/media/podcasts/podpad2/geek',
+    count=1,
+    renamer = TitleRenamer("BBCTechTent").rename,
+    name = "BBCTechTent"
+)
+
+
+bbcfileonfour =  Subscription(
     feed='https://podcasts.files.bbci.co.uk/b006th08.rss',
     targetDir='/home/brian/media/podcasts/podpad2/bbc',
     count=4,
@@ -237,7 +300,7 @@ fileonfour =  Subscription(
 )
 
 
-scienceinaction = Subscription(
+bbcscienceinaction = Subscription(
     feed='http://www.bbc.co.uk/programmes/p002vsnb/episodes/downloads.rss',
     targetDir='/home/brian/media/podcasts/podpad2/sci',
     count=1,
@@ -267,13 +330,48 @@ bbcinourtime = Subscription(
 
 
 
+
+
+bbcmoralmaze = Subscription(
+    feed='http://www.bbc.co.uk/programmes/b006qk11/episodes/downloads.rss',
+    targetDir='/home/brian/media/podcasts/podpad2/bbc',
+    count=1,
+    renamer = TitleRenamer("BBCMoralMaze").rename,
+    name = "BBCMoralMaze"
+)
+
+
+
+bbcr4report = Subscription(
+    feed='http://www.bbc.co.uk/programmes/b00jkr1q/episodes/downloads.rss',
+    targetDir='/home/brian/media/podcasts/podpad2/bbc',
+    count=1,
+    renamer = TitleRenamer("BBCR4Report").rename,
+    name = "BBCR4Report"
+)
+
+
+bbcinsidescience = Subscription(
+    feed='http://www.bbc.co.uk/programmes/b036f7w2/episodes/downloads.rss',
+    targetDir='/home/brian/media/podcasts/podpad2/sci',
+    count=1,
+    renamer = TitleRenamer("BBCInsideScience").rename,
+    name = "BBCInsideScience"
+)
+
+
+
 bbcSubscriptions = [
-    fileonfour,
+    bbceverydayethics,
+    bbcipm,
+    bbcmoralmaze,
+    bbcfileonfour,
     bbcinourtime,
+    bbcr4report,
     bbcanalysis,
     bbcwitness,
-    bbcdrkarl,
-    bbcgreatlives
+    bbcgreatlives,
+    bbceddiemair,
 ]
 
 
@@ -392,9 +490,13 @@ enginesofingenuity = Subscription(
 
 
 sciencepodcasts = [
-    scienceinaction,
     sixtysecondscience,
     greatmomentsinscience,
+    bbclifescientific,
+    bbcinsidescience,
+    bbcdrkarl,
+    bbcdiscovery,
+    bbcscienceinaction,
     thescienceshow,
     allinthemind,
     ockhamsrazor
@@ -449,6 +551,8 @@ beyondthetodolist = Subscription(
 
 geekSubscriptions = [
     beyondthetodolist,
+    bbcclick,
+    bbctechtent,
     heresthething,
     downloadthisshow,
     goulet,
@@ -461,14 +565,53 @@ geekSubscriptions = [
 ]
 
 
+
+
+
+ubunutuuk = Subscription(
+    feed="http://ubuntupodcast.org/feed/podcast",
+    targetDir='/home/brian/media/podcasts/podpad2/linux',
+    count=1,
+    renamer = TitleRenamer('UbuntuUK').rename,
+    name = "UbuntuUK"
+)
+
+
+
+linuxvoice = Subscription(
+    feed = "http://www.linuxvoice.com/podcast_ogg.rss",
+    targetDir='/home/brian/media/podcasts/podpad2/linux',
+    count=1,
+    renamer = TitleRenamer('LinuxVoice').rename,
+    name = "LinuxVoice"
+)
+
+flossweekly = Subscription(
+    feed="http://feeds.twit.tv/floss.xml",
+    targetDir='/home/brian/media/podcasts/podpad2/linux',
+    count=1,
+    renamer = NullRenamer().rename,
+    name = "FLOSSWeekly"
+)
+
+
+
+linuxSubscriptions = [
+    linuxvoice,
+    ubunutuuk,
+    flossweekly,
+]
+
+
+
 subscriptions = []
 for sub in [
         bbcSubscriptions,
         cbcSubscriptions,
-
         sciencepodcasts,
         programmingSubscriptions,
         geekSubscriptions,
+        linuxSubscriptions,
         ]:
     subscriptions.extend(sub)
 
