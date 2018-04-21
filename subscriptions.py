@@ -429,6 +429,25 @@ bbcmonkeycage = Subscription(
 )
 
 
+bbcreithlectures = Subscription(
+    feed='http://podcasts.files.bbci.co.uk/b00729d9.rss',
+    targetDir=bbcDir,
+    count=1,
+    renamer = TitleRenamer("BBCReithLectures").rename,
+    name = "BBCReithLectures",
+)
+
+bbcdeathinicevalley = Subscription(
+    feed='http://podcasts.files.bbci.co.uk/p060ms2h.rss',
+    targetDir=bbcDir,
+    count=5,
+    renamer = TitleRenamer("BBCDeathInIceValley").rename,
+    name = "BBCDeathInIceValley",
+    days = [SN,M,T]
+)
+
+
+
 bbcSubscriptions = [
     bbceverydayethics,
     bbcipm,
@@ -444,8 +463,23 @@ bbcSubscriptions = [
     bbcwitness,
     bbcgreatlives,
     bbceddiemair,
+    bbcreithlectures,
+    bbcdeathinicevalley,
 ]
 
+
+philosophybites = Subscription(
+    feed='http://www.philosophybites.libsyn.com/rss',
+    targetDir=philDir,
+    count=5,
+    renamer = PostMp3StripTitleRenamer("PhilosophyBites").rename,
+    name = "PhilosophyBites"
+)
+
+
+philosophySubscriptions = [
+    philosophybites,
+]
 
 
 thePenAddict = Subscription(
@@ -684,3 +718,15 @@ for sub in [
         ]:
     subscriptions.extend(sub)
 
+
+#############################################################################
+###
+###    Retires, defunct, or otherwise inactive:
+###
+bbcfiftythings = Subscription(
+    feed='http://podcasts.files.bbci.co.uk/p04b1g3c.rss',
+    targetDir=bbcDir,
+    count=55,
+    renamer = TitleRenamer("BBCFiftyThingsThatMadeTheModernEconomy").rename,
+    name = "BBCFiftyThingsThatMadeTheModernEconomy",
+)
