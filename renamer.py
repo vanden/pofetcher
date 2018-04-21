@@ -44,6 +44,7 @@ class Renamer():
         while True:
             idn += 1
             candidate = self._clean(self._generateName(url, stamp, entry, idn))
+            candidate = self._processHook(candidate)
             if candidate not in self.namesUsed:
                 self.namesUsed.append(candidate)
                 return candidate
@@ -98,5 +99,4 @@ class TitleRenamer(Renamer):
         else:
             base = ""
         name = f"{base}{entry.title}_{stamp}_{num}.{self.remoteExt}"
-        name = self._processHook(name)
         return self._clean(name)
