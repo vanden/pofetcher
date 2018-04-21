@@ -1,5 +1,7 @@
+import os
+
 from renamer import Renamer, NullRenamer, TitleITunesNumberRenamer
-from renamer import TitleRenamer
+from renamer import TitleRenamer, PostMp3StripTitleRenamer
 
 from config import podlog
 from podlog import PodLog
@@ -515,16 +517,12 @@ ockhamsrazor = Subscription(
     name = "OckhamsRazor"
 )
 
-class SciAmRenamer(TitleRenamer):
-    def _processHook(self, name):
-        front = name.split(".mp3")[0]
-        return front + '.mp3'
 
 sixtysecondscience = Subscription(
     feed='http://rss.sciam.com/sciam/60secsciencepodcast?format=xml',
     targetDir=sciDir,
     count=300,
-    renamer = SciAmRenamer("SixtySecondScience").rename,
+    renamer = PostMp3StripTitleRenamer("SixtySecondScience").rename,
     name = "SixtySecondScience"
 )
 

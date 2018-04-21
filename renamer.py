@@ -99,3 +99,9 @@ class TitleRenamer(Renamer):
             base = ""
         name = f"{base}{stamp}_{entry.title}{num}.{self.remoteExt}"
         return self._clean(name)
+
+
+class PostMp3StripTitleRenamer(TitleRenamer):
+    def _processHook(self, name):
+        front = name.split(".mp3")[0]
+        return front + '.mp3'
