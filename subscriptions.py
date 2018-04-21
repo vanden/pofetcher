@@ -235,6 +235,25 @@ bbclifescientific = Subscription(
 )
 
 
+
+bbcmediashow = Subscription(
+    feed="http://www.bbc.co.uk/programmes/b00dv9hq/episodes/downloads.rss",
+    targetDir=bbcDir,
+    count=1,
+    renamer = TitleRenamer("BBCMediaShow").rename,
+    name = "BBCMediaShow"
+)
+
+
+bbcprofile = Subscription(
+    feed="http://www.bbc.co.uk/programmes/b006qjz5/episodes/downloads.rss",
+    targetDir=bbcDir,
+    count=1,
+    renamer = TitleRenamer("BBCProfile").rename,
+    name = "BBCProfile"
+)
+
+
 bbcipm = Subscription(
     feed='http://www.bbc.co.uk/programmes/p02nrtwc/episodes/downloads.rss',
     targetDir=bbcDir,
@@ -253,6 +272,21 @@ bbcdiscovery =  Subscription(
 )
 
 
+bbcmoreorless = Subscription(
+    feed='http://www.bbc.co.uk/programmes/p02nrss1/episodes/downloads.rss',
+    targetDir=bbcDir,
+    count=1,
+    renamer = TitleRenamer("BBCMoreOrLess").rename,
+    name = "BBCMoreOrLess"
+)
+
+bbcwhyfactor =Subscription(
+    feed='http://www.bbc.co.uk/programmes/p00xtky9/episodes/downloads.rss',
+    targetDir=bbcDir,
+    count=1,
+    renamer = TitleRenamer("BBCWhyFactor").rename,
+    name = "BBCWhyFactor"
+)
 
 bbcwitness = Subscription(
     feed='http://www.bbc.co.uk/programmes/p004t1hd/episodes/downloads.rss',
@@ -368,12 +402,23 @@ bbcinsidescience = Subscription(
     name = "BBCInsideScience"
 )
 
+bbcmonkeycage = Subscription(
+    feed='http://www.bbc.co.uk/programmes/b00snr0w/episodes/downloads.rss',
+    targetDir=sciDir,
+    count=1,
+    renamer = TitleRenamer("BBCMonkeyCage").rename,
+    name = "BBCMonkeyCage"
+)
 
 
 bbcSubscriptions = [
     bbceverydayethics,
     bbcipm,
+    bbcwhyfactor,
+    bbcmoreorless,
     bbcmoralmaze,
+    bbcprofile,
+    bbcmediashow,
     bbcfileonfour,
     bbcinourtime,
     bbcr4report,
@@ -504,6 +549,7 @@ sciencepodcasts = [
     bbclifescientific,
     bbcinsidescience,
     bbcdrkarl,
+    bbcmonkeycage,
     bbcdiscovery,
     bbcscienceinaction,
     thescienceshow,
