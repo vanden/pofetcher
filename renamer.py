@@ -8,6 +8,7 @@ class Renamer():
 
 
     def _clean(self, string):
+        """Returns the string with unwanted characters replaced"""
         for (old, new) in [
                 ('#',''), ('?',''), ('!', '_'), (' ','_'), ('%2C_', '_'),
                 ('%2C', '_'), (':', '_'), ("'", ''), ('%2C', '_'), (',', ''),
@@ -17,7 +18,9 @@ class Renamer():
 
         return string
 
+
     def _makeDateTimeStamp(self, entry):
+        """returns a datetime.date drawn from entry data if possible"""
         dts = None
         if 'published_parsed' in entry:
             dts = entry.published_parsed
@@ -50,6 +53,10 @@ class Renamer():
 
 
     def _generateName(self, url, stamp, entry, idn):
+        # My best go at a default fallback name generator. But, given how much
+        # some of the subclasses that provide a different implementation seem
+        # to get, I'm not convinced I took a good guess at what would be the
+        # most common case.
         num = self._getIDNumerPart(idn)
         if self.base:
             if 'itunes_episode' in entry:
@@ -63,6 +70,10 @@ class Renamer():
 
 
     def _getIDNumerPart(self, idn):
+        # The intent is to have a distinct id number to prevent overwriting of
+        # existing files. It doesn't seem too likely to be a problem, but I
+        # have come across podcasts that helpfully use the same filename for
+        # every episode.
         num=''
         if idn > 1:
             num = f"_{idn:03}"
@@ -70,6 +81,8 @@ class Renamer():
 
 
     def _processHook(self, name):
+        # FixMe Bad name A hook method to allow a subclass to slightly tweak
+        # the renaming behaviour of its parent.
         return name
 
 
