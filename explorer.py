@@ -1,3 +1,7 @@
+"""
+Quick and dirty way to poke at the attributes provided by an rss feed
+"""
+
 import feedparser
 
 #feed_to_explore = "https://rss.simplecast.com/podcasts/4669/rss"
@@ -32,7 +36,7 @@ for entry in feed['entries']:
         print(f"Created_parsed: {entry.created_parsed}\n\n\n")
     if 'enclosures' in entry:
         print(f"Enclosures length: {len(entry.enclosures)}\n\n\n")
-        if len(entry.enclosures):
+        if entry.enclosures:
             print(f"Enclosure the first: {entry.enclosures[0]}\n\n\n")
     if 'enclosure' in entry:
         print(f"Enclosure: {entry.enclosure}\n\n\n")
@@ -75,5 +79,6 @@ for entry in feed['entries']:
 
     print(entry.keys())
 
-    raise
-    print()
+    # I've found it sufficient to show the first entry and overwhelming to
+    # show more than that.
+    break

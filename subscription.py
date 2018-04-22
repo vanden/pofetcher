@@ -1,8 +1,13 @@
-import datetime, os
+"""Provides a class for podcast subscriptions"""
 
-import feedparser, requests
+import datetime
+import os
 
-from config import podcastDir, podlog
+import feedparser
+import requests
+
+from config import PODCASTDIR
+from config import PODLOG
 from podlog import PodLog
 from renamer import Renamer
 
@@ -10,18 +15,44 @@ M, T, W, TH, F, S, SN = range(7)
 SA = S
 WEEKDAYS = [M, T, W, TH, F, S]
 WEEKEND = [F, S, SN, M]
-ALLWEEK = [M,T,W,TH,F,S,SN]
+ALLWEEK = [M, T, W, TH, F, S, SN]
 
 THISDAY = datetime.datetime.now().weekday()
 
-defaultLog = PodLog(podlog)
+DEFAULTLOG = PodLog(PODLOG)
 
 class Subscription():
+    """Class for a podcast subscription
 
-    def __init__(self, feed=None, log=None, targetDir=podcastDir, count=5,
+    The single public method fetchFeed parses the feed and attempts to
+    download any new entries in the feed.
+
+    The (goodly many) instance attributes are:
+
+    feed:      the url of the podcast rss feed
+
+    log:       the log file used to record what podcast files have
+               already been downloaded on past runs
+
+    targetDir: the directory in which the downloaded file should be save
+
+    renamer:   a function to construct the local filename from the url
+               and the entry (as produced by feedparser); typically this
+               will be provided as a method of a subclass of Renamer
+
+    name:      the name of the podcast; this is used in the on screen
+               progress output
+
+    days:      an iterable of day constants; if the current day is not
+               in that iterable, the subscription is passed over. This
+               allows for faster runs overall if it is know that a given
+               podcast won't have new items today and is also a bit more
+               polite.
+    """
+    def __init__(self, feed=None, log=None, targetDir=PODCASTDIR, count=5,
                  renamer=None, name=None, days=None):
         self.feed = feed
-        self.log = log or defaultLog
+        self.log = log or DEFAULTLOG
         self.targetDir = targetDir
         self.count = count
         self.renamer = renamer or Renamer().rename
@@ -32,7 +63,8 @@ class Subscription():
         self.fetched = []
 
 
-    def parseFeed(self):
+    def fetchFeed(self):
+        """Parse the feed and attempts to fetch any podcasts it finds"""
         if THISDAY in self.days:
             print(f"Parsing {self.name}")
             feed = feedparser.parse(self.feed)
@@ -66,7 +98,7 @@ class Subscription():
                     print(''.join(
                         # FixMe Isn't really the issue, is it?
                         ["Don't know how to parse",
-                         f"{orig_url} from {self.name}; skipping"]))
+                         f"{url} from {self.name}; skipping"]))
 
             print(f"\tFetching {url}")
             self._fetchAndWrite(url, entry)
@@ -75,12 +107,12 @@ class Subscription():
     def _fetchAndWrite(self, url, entry):
         localName = self._makeLocalName(url, entry)
 
-        r = requests.get(url, stream=True)
-        f = open(localName, 'wb')
-        for chunk in r.iter_content(chunk_size = 1024*4*4*4):
+        req = requests.get(url, stream=True)
+        outfile = open(localName, 'wb')
+        for chunk in req.iter_content(chunk_size=1024*4*4*4):
             if chunk:
-                f.write(chunk)
-        f.close()
+                outfile.write(chunk)
+        outfile.close()
         self.fetched.append(url)
         self.log.update(url)
 

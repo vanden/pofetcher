@@ -1,4 +1,6 @@
+"""Provides some common configuration elements"""
+
 import os
 
-podcastDir = '/home/brian/media/podcasts/podpad2'
-podlog = os.path.join(podcastDir, 'podfetchlog')
+PODCASTDIR = '/home/brian/media/podcasts/podpad2'
+PODLOG = os.path.join(PODCASTDIR, 'podfetchlog')

@@ -1,7 +1,13 @@
+"""Provides a class for a log of fetched podcasts"""
+
 import datetime
 
 class PodLog():
+    """Class for fetched podcasts
 
+    Takes a single instantiation argument, path, for the filepath of the
+    log file.
+    """
     def __init__(self, path):
         self.path = path
         self.lineLimit = (10**4)*2
@@ -34,10 +40,11 @@ class PodLog():
 
     def _parse(self):
         self.fetched_urls = dict([line.split(self.dataSplit) for
-                              line in self.lines])
+                                  line in self.lines])
 
 
     def update(self, url):
+        """Adds the url to the log"""
         # This isn't going to be the right thing once I move to forks or threads
         with open(self.path, 'a') as log:
             log.write(f"{url}{self.dataSplit}{self._timeStamp()}\n")

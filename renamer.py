@@ -1,7 +1,12 @@
+"""Provides various classes for finding local names for downloaded
+podcast files
+"""
+
 import datetime
 
 class Renamer():
-
+    """Class for determining the local name of a downloaded podcast file
+    """
     def __init__(self, base=None):
         self.namesUsed = []
         self.base = base or ''
@@ -10,10 +15,10 @@ class Renamer():
     def _clean(self, string):
         """Returns the string with unwanted characters replaced"""
         for (old, new) in [
-                ('#',''), ('?',''), ('!', '_'), (' ','_'), ('%2C_', '_'),
+                ('#', ''), ('?', ''), ('!', '_'), (' ', '_'), ('%2C_', '_'),
                 ('%2C', '_'), (':', '_'), ("'", ''), ('%2C', '_'), (',', ''),
                 ('%2C', '_'), ('%2C', '_'), ('/', '_'), ('\\', '_'),
-                ('*',''), ('"', ''), ("’", ''), ("“",""), ("”","")]:
+                ('*', ''), ('"', ''), ("’", ''), ("“", ""), ("”", "")]:
             string = string.replace(old, new)
 
         return string
@@ -35,6 +40,7 @@ class Renamer():
 
 
     def rename(self, url, entry):
+        """Produces the local filename to use"""
         stamp = self._makeDateTimeStamp(entry)
         remoteFileName = url.rsplit('/', 1)[-1]
         self.remoteBase, self.remoteExt = remoteFileName.rsplit('.', 1)
@@ -42,6 +48,8 @@ class Renamer():
 
 
     def makeCandidateName(self, url, entry, stamp):
+        """Badly named method; sort this out"""
+        #Fixme
         idn = 0
         while True:
             idn += 1
@@ -74,7 +82,7 @@ class Renamer():
         # existing files. It doesn't seem too likely to be a problem, but I
         # have come across podcasts that helpfully use the same filename for
         # every episode.
-        num=''
+        num = ''
         if idn > 1:
             num = f"_{idn:03}"
         return num
@@ -88,6 +96,11 @@ class Renamer():
 
 
 class NullRenamer(Renamer):
+    """Class for (nearly) null renaming.
+
+    At most, it appends a unique number to the basename so as to enforce
+    uniqueness.
+    """
     def _generateName(self, url, stamp, entry, idn):
         num = self._getIDNumerPart(idn)
         return f"{self.remoteBase}{num}.{self.remoteExt}"
@@ -95,6 +108,9 @@ class NullRenamer(Renamer):
 
 
 class TitleITunesNumberRenamer(Renamer):
+    """
+    Class for renaming using the itunes episode field of the rss entry
+    """
     def _generateName(self, url, stamp, entry, idn):
         num = self._getIDNumerPart(idn)
         return self._clean(
@@ -103,6 +119,7 @@ class TitleITunesNumberRenamer(Renamer):
 
 
 class TitleRenamer(Renamer):
+    """Class for renaming by use of the title field of the rss entry"""
     def _generateName(self, url, stamp, entry, idn):
 
         num = self._getIDNumerPart(idn)
@@ -115,6 +132,8 @@ class TitleRenamer(Renamer):
 
 
 class PostMp3StripTitleRenamer(TitleRenamer):
+    """Class that adds stripping post extension characters from filename
+    """
     def _processHook(self, name):
         front = name.split(".mp3")[0]
         return front + '.mp3'
