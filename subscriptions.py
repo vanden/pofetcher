@@ -168,7 +168,7 @@ talkpythontome = Subscription(
 importthis = Subscription(
     feed='http://feeds.soundcloud.com/users/soundcloud:users:82237854/sounds.rss',
     targetDir=programmingDir,
-    count=10,
+    count=20,
     renamer=TitleRenamer("ImportThis").rename,
     name="ImportThis"
 )
@@ -558,7 +558,7 @@ ockhamsrazor = Subscription(
 sixtysecondscience = Subscription(
     feed='http://rss.sciam.com/sciam/60secsciencepodcast?format=xml',
     targetDir=sciDir,
-    count=300,
+    count=30,
     renamer=PostMp3StripTitleRenamer("SixtySecondScience").rename,
     name="SixtySecondScience"
 )
@@ -567,7 +567,7 @@ sixtysecondscience = Subscription(
 greatmomentsinscience = Subscription(
     feed='http://www.abc.net.au/radionational/feed/7417248/podcast.xml',
     targetDir=sciDir,
-    count=115,
+    count=10,
     renamer=TitleRenamer("GreatMomentsInScience").rename,
     name="GreatMomentsInScience"
 )
@@ -576,7 +576,7 @@ greatmomentsinscience = Subscription(
 thescienceshow = Subscription(
     feed='http://www.abc.net.au/radionational/feed/2885486/podcast.xml',
     targetDir=sciDir,
-    count=20,
+    count=30,
     renamer=TitleRenamer("TheScienceShow").rename,
     name="TheScienceShow"
 )
@@ -585,7 +585,7 @@ thescienceshow = Subscription(
 spacetime = Subscription(
     feed='https://audioboom.com/channels/4642443.rss',
     targetDir=sciDir,
-    count=2,
+    count=3,
     renamer=TitleRenamer("SpaceTime").rename,
     name="SpaceTime"
 )
