@@ -112,7 +112,7 @@ hanselMinutes = Subscription(
     feed='https://rss.simplecast.com/podcasts/4669/rss',
     targetDir=programmingDir,
     count=8,
-    renamer=TitleRenamer('hansleminutes').rename,
+    renamer=TitleRenamer('hanselminutes').rename,
     name="HanselMinutes",
 )
 
