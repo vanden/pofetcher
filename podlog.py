@@ -22,6 +22,10 @@ class PodLog():
         return url in self.fetched_urls
 
 
+    def __getitem__(self, key):
+        return self.fetched_urls[key]
+
+
     def _read(self):
         with open(self.path, 'r') as log:
             self.lines = [l for l in log.readlines() if l.strip()]
