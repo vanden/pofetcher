@@ -121,7 +121,7 @@ syntax = Subscription(
     feed='http://feed.syntax.fm/rss',
     targetDir=programmingDir,
     count=3,
-    renamer=NullRenamer().rename,
+    renamer=PostMp3StripTitleRenamer('Syntax').rename,
     name="Syntax"
 )
 
