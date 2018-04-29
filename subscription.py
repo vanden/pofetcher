@@ -81,7 +81,7 @@ class Subscription():
                 # should do. ThinkMore
                 continue
 
-            if url in self.log or url in self.fetched:
+            if not self._shouldBeFetched(url):
                 continue
 
             if '?' in url:
@@ -98,6 +98,12 @@ class Subscription():
             print(f"\tFetching {url}")
             self._fetchAndWrite(url, entry)
 
+    def _shouldBeFetched(self, url):
+        # The basic one is making the assumption that all episodes in a feed
+        # hav unique filenames and that a given episode may appear more than
+        # once in a feed. The method exists so that subclasses may specialize
+        # this behaviour.
+        return not(url in self.log or url in self.fetched)
 
     def _fetchAndWrite(self, url, entry):
         localName = self._makeLocalName(url, entry)
