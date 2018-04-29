@@ -252,6 +252,16 @@ bbcmediashow = Subscription(
 )
 
 
+bbcspace = Subscription(
+    feed="http://podcasts.files.bbci.co.uk/p03bv899.rss",
+    targetDir=sciDir,
+    count=3,
+    renamer=TitleRenamer("BBCSpace").rename,
+    name="BBCSpace",
+    days=[SA, SN, M]
+)
+
+
 bbcprofile = Subscription(
     feed="http://www.bbc.co.uk/programmes/b006qjz5/episodes/downloads.rss",
     targetDir=bbcDir,
@@ -604,7 +614,8 @@ sciencepodcasts = [
     bbcscienceinaction,
     thescienceshow,
     allinthemind,
-    ockhamsrazor
+    ockhamsrazor,
+    bbcspace,
 ]
 
 
