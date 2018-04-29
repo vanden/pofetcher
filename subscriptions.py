@@ -739,8 +739,18 @@ bbcworldthisweek = Subscription(
 )
 
 
+bbcnewshour = Subscription(
+    feed="http://podcasts.files.bbci.co.uk/p002vsnk.rss",
+    targetDir=NEWSDIR,
+    count=1,
+    renamer=TitleRenamer('BBCNewsHour').rename,
+    name="BBCNewsHour"
+)
+
+
 newsSubscriptions = [
     cbcworldreport,
+    bbcnewshour,
     bbcworldthisweek,
 ]
 newsSubscriptions.extend(NewsSubscriptions)
