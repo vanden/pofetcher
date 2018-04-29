@@ -28,6 +28,7 @@ philDir = os.path.join(PODCASTDIR, 'phil')
 programmingDir = os.path.join(PODCASTDIR, 'prog')
 sciDir = os.path.join(PODCASTDIR, 'sci')
 
+
 quirks = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/quirks.xml',
     targetDir=sciDir,
@@ -82,7 +83,6 @@ spark = Subscription(
 )
 
 
-
 undertheinfluence = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/undertheinfluence.xml',
     targetDir=cbcDir,
@@ -101,8 +101,6 @@ cbcSubscriptions = [
     whitecoat,
     undertheinfluence,
 ]
-
-
 
 
 gotime = Subscription(
@@ -139,6 +137,7 @@ javascriptjabber = Subscription(
     name="JavaScriptJabber"
 )
 
+
 podcastinit = Subscription(
     feed='https://www.podcastinit.com/feed/mp3/',
     targetDir=programmingDir,
@@ -157,15 +156,6 @@ testandcode = Subscription(
 )
 
 
-
-
-
-# What's this, then? Got both.
-# Parsing JavaScriptJabber
-# Fetching https://media.devchat.tv/js-jabber/JSJ_309_WebAssembly_and_JavaScript_with_Ben_Titzer.mp3
-# Fetching https://media.devchat.tv/js-jabber/JSJ_309_WebAssembly_and_JavaScript_with_Ben_Titzer.mp3
-
-
 talkpythontome = Subscription(
     feed='https://talkpython.fm/episodes/ogg_rss',
     targetDir=programmingDir,
@@ -182,7 +172,6 @@ importthis = Subscription(
     renamer=TitleRenamer("ImportThis").rename,
     name="ImportThis"
 )
-
 
 
 fullstackradio = Subscription(
@@ -236,6 +225,7 @@ bbceverydayethics = Subscription(
     name="BBCEveryDayEthics",
     days=WEEKEND,
 )
+
 
 bbclifescientific = Subscription(
     feed="http://www.bbc.co.uk/programmes/b015sqc7/episodes/downloads.rss",
@@ -306,6 +296,7 @@ bbcmoreorless = Subscription(
     days=ALLWEEK,
 )
 
+
 bbcwhyfactor = Subscription(
     feed='http://www.bbc.co.uk/programmes/p00xtky9/episodes/downloads.rss',
     targetDir=bbcDir,
@@ -314,6 +305,7 @@ bbcwhyfactor = Subscription(
     name="BBCWhyFactor",
     days=[SN, M, T]
 )
+
 
 bbcwitness = Subscription(
     feed='http://www.bbc.co.uk/programmes/p004t1hd/episodes/downloads.rss',
@@ -435,6 +427,7 @@ bbcinsidescience = Subscription(
     days=[W, TH, F]
 )
 
+
 bbcmonkeycage = Subscription(
     feed='http://www.bbc.co.uk/programmes/b00snr0w/episodes/downloads.rss',
     targetDir=sciDir,
@@ -525,6 +518,7 @@ class TenPerRenamer(Renamer):
         num = self._getIDNumerPart(idn)
         return f"10PercentHappier_{number}{num}.mp3"
 
+
 tenpercenthappier = Subscription(
     feed='http://feeds.feedburner.com/abcradio/10percenthappier?format=xml',
     targetDir='/home/brian/media/podcasts/podpad2/buddhist',
@@ -541,7 +535,6 @@ ninety9percentinvisible = Subscription(
     renamer=TitleRenamer('99PercentInvisible').rename,
     name="99 Percent Invisible"
 )
-
 
 
 allinthemind = Subscription(
@@ -598,7 +591,6 @@ spacetime = Subscription(
 )
 
 
-
 enginesofingenuity = Subscription(
     feed='https://www.houstonpublicmedia.org/podcasts/engines-of-our-ingenuity/',
     targetDir=sciDir,
@@ -633,7 +625,6 @@ heresthething = Subscription(
 )
 
 
-
 downloadthisshow = Subscription(
     feed='http://www.abc.net.au/radionational/feed/3777916/podcast.xml',
     targetDir=geekDir,
@@ -652,7 +643,6 @@ futuretense = Subscription(
 )
 
 
-
 thephilosopherszone = Subscription(
     feed='http://www.abc.net.au/radionational/feed/2884506/podcast.xml',
     targetDir=philDir,
@@ -660,6 +650,7 @@ thephilosopherszone = Subscription(
     renamer=TitleRenamer('ThePhilosophersZone').rename,
     name="ThePhilosophersZone"
 )
+
 
 beyondthetodolist = Subscription(
     feed="http://feeds2.noodle.mx/beyondthetodolist",
@@ -686,9 +677,6 @@ geekSubscriptions = [
 ]
 
 
-
-
-
 ubunutuuk = Subscription(
     feed="http://ubuntupodcast.org/feed/podcast",
     targetDir=linuxDir,
@@ -696,7 +684,6 @@ ubunutuuk = Subscription(
     renamer=TitleRenamer('UbuntuUK').rename,
     name="UbuntuUK"
 )
-
 
 
 linuxvoice = Subscription(
@@ -707,6 +694,7 @@ linuxvoice = Subscription(
     name="LinuxVoice"
 )
 
+
 flossweekly = Subscription(
     feed="http://feeds.twit.tv/floss.xml",
     targetDir=linuxDir,
@@ -714,7 +702,6 @@ flossweekly = Subscription(
     renamer=NullRenamer().rename,
     name="FLOSSWeekly"
 )
-
 
 
 linuxSubscriptions = [
@@ -747,6 +734,7 @@ newsSubscriptions = [
     bbcworldthisweek,
 ]
 newsSubscriptions.extend(NewsSubscriptions)
+
 
 subscriptions = []
 for sub in [
