@@ -662,8 +662,18 @@ beyondthetodolist = Subscription(
 )
 
 
+trumpconlaw = Subscription(
+    feed="http://feeds.trumpconlaw.com/TrumpConLaw",
+    targetDir=geekDir,
+    count=5,
+    renamer=TitleRenamer('WhatTrumpCanTeachAboutConLaw').rename,
+    name="WhatTrumpCanTeachAboutConLaw"
+)
+
+
 geekSubscriptions = [
     beyondthetodolist,
+    trumpconlaw,
     bbcclick,
     bbctechtent,
     heresthething,
