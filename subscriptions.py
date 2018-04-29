@@ -532,8 +532,8 @@ tenpercenthappier = Subscription(
 ninety9percentinvisible = Subscription(
     feed='http://feeds.99percentinvisible.org/99percentinvisible',
     targetDir=geekDir,
-    count=10,
-    renamer=Renamer('99PercentInvisible').rename,
+    count=5,
+    renamer=TitleRenamer('99PercentInvisible').rename,
     name="99 Percent Invisible"
 )
 
