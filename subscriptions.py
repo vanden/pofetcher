@@ -10,6 +10,11 @@ from config import PODLOG
 from config import PODCASTDIR
 from config import NEWSDIR
 from podlog import PodLog
+
+
+from newssubscriptions import NewsSubscriptions
+
+
 log = PodLog(PODLOG)
 
 
@@ -719,9 +724,33 @@ linuxSubscriptions = [
 ]
 
 
+cbcworldreport = Subscription(
+    feed="http://www.cbc.ca/podcasting/includes/wr.xml",
+    targetDir=NEWSDIR,
+    count=1,
+    renamer=TitleRenamer('CBCWorldReport').rename,
+    name="CBCWorldReport"
+)
+
+
+bbcworldthisweek = Subscription(
+    feed="http://www.bbc.co.uk/programmes/p0299wgd/episodes/downloads.rss",
+    targetDir=NEWSDIR,
+    count=1,
+    renamer=TitleRenamer('BBCWorldThisWeek').rename,
+    name="BBCWorldThisWeek"
+)
+
+
+newsSubscriptions = [
+    cbcworldreport,
+    bbcworldthisweek,
+]
+newsSubscriptions.extend(NewsSubscriptions)
 
 subscriptions = []
 for sub in [
+        newsSubscriptions,
         bbcSubscriptions,
         cbcSubscriptions,
         sciencepodcasts,
