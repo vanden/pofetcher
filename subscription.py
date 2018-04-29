@@ -6,16 +6,11 @@ import os
 import feedparser
 import requests
 
-from config import PODCASTDIR
-from config import PODLOG
+from config import WEEKDAYS, WEEKEND, ALLWEEK, M, T, W, TH, F, SA, SN
+from config import PODCASTDIR, PODLOG
 from podlog import PodLog
 from renamer import Renamer
 
-M, T, W, TH, F, S, SN = range(7)
-SA = S
-WEEKDAYS = [M, T, W, TH, F, S]
-WEEKEND = [F, S, SN, M]
-ALLWEEK = [M, T, W, TH, F, S, SN]
 
 THISDAY = datetime.datetime.now().weekday()
 

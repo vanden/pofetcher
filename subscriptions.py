@@ -7,20 +7,21 @@ from subscription import Subscription, M, T, W, TH, F, SA, SN
 from subscription import WEEKDAYS, WEEKEND, ALLWEEK
 
 from config import PODLOG
+from config import PODCASTDIR
+from config import NEWSDIR
 from podlog import PodLog
 log = PodLog(PODLOG)
 
 
-poddir = '/home/brian/media/podcasts/podpad2'
-bbcDir = os.path.join(poddir, 'bbc')
-cbcDir = os.path.join(poddir, 'cbc')
-geekDir = os.path.join(poddir, 'geek')
-linuxDir = os.path.join(poddir, 'linux')
-newsDir = os.path.join(poddir, 'news')
-penDir = os.path.join(poddir, 'pens')
-philDir = os.path.join(poddir, 'phil')
-programmingDir = os.path.join(poddir, 'prog')
-sciDir = os.path.join(poddir, 'sci')
+
+bbcDir = os.path.join(PODCASTDIR, 'bbc')
+cbcDir = os.path.join(PODCASTDIR, 'cbc')
+geekDir = os.path.join(PODCASTDIR, 'geek')
+linuxDir = os.path.join(PODCASTDIR, 'linux')
+penDir = os.path.join(PODCASTDIR, 'pens')
+philDir = os.path.join(PODCASTDIR, 'phil')
+programmingDir = os.path.join(PODCASTDIR, 'prog')
+sciDir = os.path.join(PODCASTDIR, 'sci')
 
 quirks = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/quirks.xml',
@@ -33,7 +34,7 @@ quirks = Subscription(
 
 atissue = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/atissue.xml',
-    targetDir=newsDir,
+    targetDir=NEWSDIR,
     renamer=Renamer('AtIssue').rename,
     count=3,
     name="At Issue"
