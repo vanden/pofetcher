@@ -595,7 +595,7 @@ enginesofingenuity = Subscription(
     feed='https://www.houstonpublicmedia.org/podcasts/engines-of-our-ingenuity/',
     targetDir=sciDir,
     count=30,
-    renamer=TitleRenamer().rename,
+    renamer=TitleRenamer("Engines").rename,
     name="Engines Of Our Ingenuity"
 )
 
@@ -613,6 +613,7 @@ sciencepodcasts = [
     allinthemind,
     ockhamsrazor,
     bbcspace,
+    enginesofingenuity,
 ]
 
 
@@ -671,7 +672,6 @@ geekSubscriptions = [
     thePenAddict,
     tenpercenthappier,
     ninety9percentinvisible,
-    enginesofingenuity,
     futuretense,
     thephilosopherszone
 ]
