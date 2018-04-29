@@ -672,18 +672,18 @@ trumpconlaw = Subscription(
 
 
 geekSubscriptions = [
-    beyondthetodolist,
     trumpconlaw,
+    ninety9percentinvisible,
+    thePenAddict,
     bbcclick,
     bbctechtent,
     heresthething,
     downloadthisshow,
     goulet,
-    thePenAddict,
     tenpercenthappier,
-    ninety9percentinvisible,
     futuretense,
-    thephilosopherszone
+    beyondthetodolist,
+    thephilosopherszone,
 ]
 
 
