@@ -14,7 +14,6 @@ from podlog import PodLog
 
 from newssubscriptions import NewsSubscriptions
 
-
 log = PodLog(PODLOG)
 
 
@@ -34,7 +33,8 @@ quirks = Subscription(
     targetDir=sciDir,
     renamer=Renamer('quirks').rename,
     count=10,
-    name="Quirks & Quarks"
+    name="Quirks & Quarks",
+    days=[F, SA]
 )
 
 
@@ -43,7 +43,8 @@ atissue = Subscription(
     targetDir=NEWSDIR,
     renamer=Renamer('AtIssue').rename,
     count=3,
-    name="At Issue"
+    name="At Issue",
+    days=[W, TH, F]
 )
 
 
@@ -52,7 +53,8 @@ otherpeoplesproblems = Subscription(
     targetDir=cbcDir,
     renamer=TitleRenamer('CBCOtherPeoplesProblems').rename,
     count=2,
-    name="Other Peoples Problems"
+    name="Other Peoples Problems",
+    days=[M, W, F],  # Don't know when it comes out; distribute load
 )
 
 
@@ -61,7 +63,8 @@ ondrugs = Subscription(
     targetDir=cbcDir,
     renamer=TitleRenamer('CBCOnDrugs').rename,
     count=3,
-    name="On Drugs"
+    name="On Drugs",
+    days=[SN, M, T,],
 )
 
 
@@ -70,7 +73,8 @@ whitecoat = Subscription(
     targetDir=sciDir,
     renamer=TitleRenamer('CBCWhiteCoatBlackArt').rename,
     count=5,
-    name="White Coat Black Art"
+    name="White Coat Black Art",
+    days=[SA, SN]
 )
 
 
@@ -79,7 +83,8 @@ spark = Subscription(
     targetDir=cbcDir,
     renamer=TitleRenamer('CBCSpark').rename,
     count=3,
-    name="Spark"
+    name="Spark",
+    days=WEEKEND
 )
 
 
@@ -88,7 +93,8 @@ undertheinfluence = Subscription(
     targetDir=cbcDir,
     renamer=TitleRenamer('CBCUnderTheInfluence').rename,
     count=2,
-    name="Under The Influence"
+    name="Under The Influence",
+    days=WEEKEND,
 )
 
 
@@ -108,6 +114,7 @@ gotime = Subscription(
     targetDir=programmingDir,
     count=8,
     name="GoTime",
+    days=[SN, M, T],
 )
 
 
@@ -117,6 +124,7 @@ hanselMinutes = Subscription(
     count=8,
     renamer=TitleRenamer('hanselminutes').rename,
     name="HanselMinutes",
+    days=[W, TH, F],
 )
 
 
@@ -496,7 +504,8 @@ thePenAddict = Subscription(
     targetDir=penDir,
     count=2,
     renamer=NullRenamer().rename,
-    name="The Pen Addict"
+    name="The Pen Addict",
+    days=[T, W, TH],
 )
 
 
@@ -505,7 +514,8 @@ goulet = Subscription(
     targetDir=penDir,
     count=2,
     renamer=NullRenamer().rename,
-    name="Goulet"
+    name="Goulet",
+    days=[M, W, F],
 )
 
 
@@ -524,7 +534,8 @@ tenpercenthappier = Subscription(
     targetDir='/home/brian/media/podcasts/podpad2/buddhist',
     count=2,
     renamer=TenPerRenamer().rename,
-    name="Ten Percent Happier"
+    name="Ten Percent Happier",
+    days=[T, W, TH]
 )
 
 
@@ -542,7 +553,8 @@ allinthemind = Subscription(
     targetDir=sciDir,
     count=2,
     renamer=TitleRenamer("AllInTheMind").rename,
-    name="AllInTheMind"
+    name="AllInTheMind",
+    days=[T, TH, SA]
 )
 
 
@@ -558,9 +570,10 @@ ockhamsrazor = Subscription(
 sixtysecondscience = Subscription(
     feed='http://rss.sciam.com/sciam/60secsciencepodcast?format=xml',
     targetDir=sciDir,
-    count=30,
+    count=5,
     renamer=PostMp3StripTitleRenamer("SixtySecondScience").rename,
-    name="SixtySecondScience"
+    name="SixtySecondScience",
+    days=[M, W, F, SA]
 )
 
 
@@ -578,7 +591,8 @@ thescienceshow = Subscription(
     targetDir=sciDir,
     count=30,
     renamer=TitleRenamer("TheScienceShow").rename,
-    name="TheScienceShow"
+    name="TheScienceShow",
+    days=WEEKEND,
 )
 
 
@@ -587,7 +601,8 @@ spacetime = Subscription(
     targetDir=sciDir,
     count=3,
     renamer=TitleRenamer("SpaceTime").rename,
-    name="SpaceTime"
+    name="SpaceTime",
+    days=[T, ],
 )
 
 
@@ -596,7 +611,8 @@ enginesofingenuity = Subscription(
     targetDir=sciDir,
     count=30,
     renamer=TitleRenamer("Engines").rename,
-    name="Engines Of Our Ingenuity"
+    name="Engines Of Our Ingenuity",
+    days=[T, TH, SN]
 )
 
 
@@ -622,7 +638,8 @@ heresthething = Subscription(
     targetDir=geekDir,
     count=3,
     renamer=TitleRenamer('HeresTheThing').rename,
-    name="HeresTheThing"
+    name="HeresTheThing",
+    days=[M, W, F]
 )
 
 
@@ -631,7 +648,8 @@ downloadthisshow = Subscription(
     targetDir=geekDir,
     count=2,
     renamer=TitleRenamer('DownloadThisShow').rename,
-    name="DownloadThisShow"
+    name="DownloadThisShow",
+    days=[T, TH, SA],
 )
 
 
@@ -640,7 +658,8 @@ futuretense = Subscription(
     targetDir=geekDir,
     count=2,
     renamer=TitleRenamer('FutureTense').rename,
-    name="FutureTense"
+    name="FutureTense",
+    days=[SN, W, F]
 )
 
 
@@ -658,7 +677,8 @@ beyondthetodolist = Subscription(
     targetDir=geekDir,
     count=1,
     renamer=TitleRenamer('BeyondTheToDoList').rename,
-    name="BeyondTheToDoList"
+    name="BeyondTheToDoList",
+    days=[M, TH, SA],
 )
 
 
@@ -667,7 +687,8 @@ trumpconlaw = Subscription(
     targetDir=geekDir,
     count=5,
     renamer=TitleRenamer('WhatTrumpCanTeachAboutConLaw').rename,
-    name="WhatTrumpCanTeachAboutConLaw"
+    name="WhatTrumpCanTeachAboutConLaw",
+    days=[T, F, SN],
 )
 
 
@@ -692,7 +713,8 @@ ubunutuuk = Subscription(
     targetDir=linuxDir,
     count=1,
     renamer=TitleRenamer('UbuntuUK').rename,
-    name="UbuntuUK"
+    name="UbuntuUK",
+    days=[T, W, TH, SA]
 )
 
 
@@ -710,7 +732,8 @@ flossweekly = Subscription(
     targetDir=linuxDir,
     count=1,
     renamer=NullRenamer().rename,
-    name="FLOSSWeekly"
+    name="FLOSSWeekly",
+    days=[M, W, F],
 )
 
 
@@ -735,7 +758,8 @@ bbcworldthisweek = Subscription(
     targetDir=NEWSDIR,
     count=1,
     renamer=TitleRenamer('BBCWorldThisWeek').rename,
-    name="BBCWorldThisWeek"
+    name="BBCWorldThisWeek",
+    days=WEEKEND
 )
 
 
