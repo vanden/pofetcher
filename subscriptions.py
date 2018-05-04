@@ -68,6 +68,16 @@ ondrugs = Subscription(
 )
 
 
+someoneknowssomething = Subscription(
+    feed='http://www.cbc.ca/podcasting/includes/sks.xml',
+    targetDir=cbcDir,
+    renamer=TitleRenamer('CBCSomeoneKnowsSomething').rename,
+    count=3,
+    name="Someone Knows Something",
+    days=[TH, F],
+)
+
+
 whitecoat = Subscription(
     feed='http://www.cbc.ca/podcasting/includes/whitecoat.xml',
     targetDir=sciDir,
@@ -106,6 +116,7 @@ cbcSubscriptions = [
     spark,
     whitecoat,
     undertheinfluence,
+    someoneknowssomething,
 ]
 
 
