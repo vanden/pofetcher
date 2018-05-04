@@ -51,10 +51,11 @@ cbcworldatsix = NewsSubscription(
     count=1,
     renamer=TitleRenamer('CBCWorldAtSix').rename,
     name='CBCWorldAtSix',
+    days=WEEKDAYS
 )
 
 now = datetime.datetime.now()
-if not now.weekday() in WEEKDAYS:
+if now.weekday() in WEEKDAYS:
     if now.hour >= 16 and now.hour <= 20:
         # FixMe This assumes I am in Pacific Time. Make it timezone aware
         NewsSubscriptions.append(cbcworldatsix)
