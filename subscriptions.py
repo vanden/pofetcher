@@ -3,8 +3,8 @@ import os
 from renamer import Renamer, NullRenamer, TitleITunesNumberRenamer
 from renamer import TitleRenamer, PostMp3StripTitleRenamer
 
-from subscription import Subscription, M, T, W, TH, F, SA, SN
-from subscription import WEEKDAYS, WEEKEND, ALLWEEK
+from subscription import Subscription
+from config import WEEKDAYS, WEEKEND, ALLWEEK, M, T, W, TH, F, SA, SN
 
 from config import PODLOG
 from config import PODCASTDIR
