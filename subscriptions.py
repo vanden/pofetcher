@@ -142,9 +142,10 @@ hanselMinutes = Subscription(
 syntax = Subscription(
     feed='http://feed.syntax.fm/rss',
     targetDir=programmingDir,
-    count=3,
+    count=5,
     renamer=PostMp3StripTitleRenamer('Syntax').rename,
-    name="Syntax"
+    name="Syntax",
+    days=[F]
 )
 
 
@@ -153,7 +154,8 @@ javascriptjabber = Subscription(
     targetDir=programmingDir,
     count=5,
     renamer=NullRenamer().rename,
-    name="JavaScriptJabber"
+    name="JavaScriptJabber",
+    days=[M, TH, SA]
 )
 
 
@@ -162,16 +164,18 @@ podcastinit = Subscription(
     targetDir=programmingDir,
     count=10,
     renamer=TitleRenamer('Podcast.__init__').rename,
-    name="Podcast.__init__"
+    name="Podcast.__init__",
+    days=[W, SN]
 )
 
 
 testandcode = Subscription(
     feed='http://testandcode.com/rss/',
     targetDir=programmingDir,
-    count=2,
+    count=5,
     renamer=TitleRenamer('TestAndCode').rename,
-    name="TestAndCode"
+    name="TestAndCode",
+    days=[T, F]
 )
 
 
@@ -180,16 +184,18 @@ talkpythontome = Subscription(
     targetDir=programmingDir,
     count=5,
     renamer=TitleITunesNumberRenamer("TalkPythonToMe").rename,
-    name="TalkPythonToMe"
+    name="TalkPythonToMe",
+    days=[M, SA],
 )
 
 
 importthis = Subscription(
     feed='http://feeds.soundcloud.com/users/soundcloud:users:82237854/sounds.rss',
     targetDir=programmingDir,
-    count=20,
+    count=22,
     renamer=TitleRenamer("ImportThis").rename,
-    name="ImportThis"
+    name="ImportThis",
+    days=[T]
 )
 
 
@@ -198,7 +204,8 @@ fullstackradio = Subscription(
     targetDir=programmingDir,
     count=10,
     renamer=TitleRenamer("FullStackRadio").rename,
-    name="FullStackRadio"
+    name="FullStackRadio",
+    days=[W]
 )
 
 
@@ -207,7 +214,8 @@ thechangelog = Subscription(
     targetDir=programmingDir,
     count=10,
     renamer=TitleRenamer("TheChangeLog").rename,
-    name="TheChangeLog"
+    name="TheChangeLog",
+    days=[TH]
 )
 
 
@@ -523,10 +531,10 @@ thePenAddict = Subscription(
 goulet = Subscription(
     feed='http://feeds.feedburner.com/GouletQa',
     targetDir=penDir,
-    count=2,
+    count=5,
     renamer=NullRenamer().rename,
     name="Goulet",
-    days=[M, W, F],
+    days=[F],
 )
 
 
@@ -572,9 +580,10 @@ allinthemind = Subscription(
 ockhamsrazor = Subscription(
     feed='http://www.abc.net.au/radionational/feed/2883682/podcast.xml',
     targetDir=sciDir,
-    count=2,
+    count=5,
     renamer=TitleRenamer("OckhamsRazor").rename,
-    name="OckhamsRazor"
+    name="OckhamsRazor",
+    days=[SA,]
 )
 
 
@@ -593,7 +602,8 @@ greatmomentsinscience = Subscription(
     targetDir=sciDir,
     count=10,
     renamer=TitleRenamer("GreatMomentsInScience").rename,
-    name="GreatMomentsInScience"
+    name="GreatMomentsInScience",
+    days=[T],
 )
 
 
@@ -667,19 +677,20 @@ downloadthisshow = Subscription(
 futuretense = Subscription(
     feed='http://www.abc.net.au/radionational/feed/2883726/podcast.xml',
     targetDir=geekDir,
-    count=2,
+    count=5,
     renamer=TitleRenamer('FutureTense').rename,
     name="FutureTense",
-    days=[SN, W, F]
+    days=[SN]
 )
 
 
 thephilosopherszone = Subscription(
     feed='http://www.abc.net.au/radionational/feed/2884506/podcast.xml',
     targetDir=philDir,
-    count=1,
+    count=5,
     renamer=TitleRenamer('ThePhilosophersZone').rename,
-    name="ThePhilosophersZone"
+    name="ThePhilosophersZone",
+    days=[TH]
 )
 
 
@@ -689,7 +700,7 @@ beyondthetodolist = Subscription(
     count=1,
     renamer=TitleRenamer('BeyondTheToDoList').rename,
     name="BeyondTheToDoList",
-    days=[M, TH, SA],
+    days=[SA],
 )
 
 
@@ -741,10 +752,10 @@ linuxvoice = Subscription(
 flossweekly = Subscription(
     feed="http://feeds.twit.tv/floss.xml",
     targetDir=linuxDir,
-    count=1,
+    count=5,
     renamer=NullRenamer().rename,
     name="FLOSSWeekly",
-    days=[M, W, F],
+    days=[M],
 )
 
 
