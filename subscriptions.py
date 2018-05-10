@@ -755,38 +755,9 @@ linuxSubscriptions = [
 ]
 
 
-cbcworldreport = Subscription(
-    feed="http://www.cbc.ca/podcasting/includes/wr.xml",
-    targetDir=NEWSDIR,
-    count=1,
-    renamer=TitleRenamer('CBCWorldReport').rename,
-    name="CBCWorldReport"
-)
-
-
-bbcworldthisweek = Subscription(
-    feed="http://www.bbc.co.uk/programmes/p0299wgd/episodes/downloads.rss",
-    targetDir=NEWSDIR,
-    count=1,
-    renamer=TitleRenamer('BBCWorldThisWeek').rename,
-    name="BBCWorldThisWeek",
-    days=WEEKEND
-)
-
-
-bbcnewshour = Subscription(
-    feed="http://podcasts.files.bbci.co.uk/p002vsnk.rss",
-    targetDir=NEWSDIR,
-    count=1,
-    renamer=TitleRenamer('BBCNewsHour').rename,
-    name="BBCNewsHour"
-)
 
 
 newsSubscriptions = [
-    cbcworldreport,
-    bbcnewshour,
-    bbcworldthisweek,
 ]
 newsSubscriptions.extend(NewsSubscriptions)
 
